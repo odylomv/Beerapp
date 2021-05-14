@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="15dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Insert Title"
+            android:id="@+id/beerTitle"
+            />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_below="@+id/beerTitle"
+            android:src="@drawable/beer1"
+            android:id="@+id/beerPic"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short Description goes here \n Many lines bla bla bla"
+            android:layout_below="@id/beerPic"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/beerShortDescription"
+
+            />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
