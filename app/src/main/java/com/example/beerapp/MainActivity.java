@@ -1,6 +1,7 @@
 package com.example.beerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
-    /*public void openBeerCarousel (View view){
+    public void openBeerCarousel (View view){
         Intent intent = new Intent(this, BeerCarousel.class);
         startActivity(intent);
-    }*/
+    }
 
     public void openAbout(View view){
         Intent intent = new Intent(this, About.class);

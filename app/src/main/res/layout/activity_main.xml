@@ -13,11 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/explore"
+        android:onClick="openBeerCarousel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
-        <!-- android:onClick="openBeerCarousel"-->
+
 
     <Button
         android:id="@+id/buttonFavorites"
