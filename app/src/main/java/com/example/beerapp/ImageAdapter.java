@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 public class ImageAdapter extends PagerAdapter {
 
     private Context mContext;
-    private int[] mImageIds = new int[] {R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground};
+    private int[] mImageIds = new int[] {R.drawable.beer1,R.drawable.beer2,R.drawable.beer3};
 
     ImageAdapter(Context context){
         mContext = context;
