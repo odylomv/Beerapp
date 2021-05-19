@@ -1,6 +1,7 @@
 package com.example.beerapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.bumptech.glide.Glide;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+
+import static com.example.beerapp.BeerActivity.BEER_ID_KEY;
 
 public class FavoriteRecViewAdapter extends RecyclerView.Adapter<FavoriteRecViewAdapter.ViewHolder> {
     private static final String TAG = "FavoriteRecViewAdapter";
@@ -52,10 +55,20 @@ public class FavoriteRecViewAdapter extends RecyclerView.Adapter<FavoriteRecView
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, beers.get(position).getName() + " selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, BeerActivity.class);
+                intent.putExtra(BEER_ID_KEY,beers.get(position).getId());
+                context.startActivity(intent);
             }
         });
 
+    }
+    public Beer getBeerById(int id) {
+        for(Beer beer:beers){
+            if(beer.getId() == id){
+                return beer;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -77,4 +90,5 @@ public class FavoriteRecViewAdapter extends RecyclerView.Adapter<FavoriteRecView
 
         }
     }
+
 }

@@ -7,6 +7,7 @@ public class Beer {
     private String longDescription;
     private String imgSource;
 
+
     public Beer(String name, int id, String shortDescription, String longDescription, String imgSource) {
         this.name = name;
         this.id = id;
@@ -38,4 +39,20 @@ public class Beer {
     public String getImgSource() {
         return imgSource;
     }
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
 }

@@ -24,7 +24,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
         ArrayList <Beer> beers = new ArrayList<>();
         beers.add(new Beer("Pipi",0,"Short Pipi lolololo","longPipi lololo","https://www.csd.auth.gr/wp-content/uploads/2019/08/Tefas2020small-240x300.jpg"));
-        beers.add(new Beer("Pipi",0,"Short Pipi lolololo","longPipi lololo","https://www.csd.auth.gr/wp-content/uploads/2019/08/Tefas2020small-240x300.jpg"));
+        beers.add(new Beer("Pipi",0,"Short Pipi lolololo2222","longPipi lololo22222","https://www.csd.auth.gr/wp-content/uploads/2019/08/Tefas2020small-240x300.jpg"));
         adapter.setBeers(beers);
     }
 }
