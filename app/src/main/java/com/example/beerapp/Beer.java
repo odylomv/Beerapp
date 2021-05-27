@@ -16,6 +16,9 @@ public class Beer {
         this.imgSource = imgSource;
     }
 
+    public Beer() {
+    }
+
     public void setName(String name) {
         this.name = name;
     }
