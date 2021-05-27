@@ -5,7 +5,33 @@
     <string name="explore">Explore the Beers</string>
     <string name="favorites">My Favorites</string>
     <string name="about">This is an app developed by Christos Christidis, Odysseas Lomvardeas and Alexandros Sofoulakis
-    as a university project. We do not own the rights to these images or the branded trademarks of the beers. Please drink responsibly.</string>
+    as a university project. We do not own the rights to these images or the branded trademarks of the beers. Please drink responsibly. DISCLAIMER: ALl information
+    and data has been gathered from Wikipedia within the Creative Commons license limitations without any intention of commercial use. </string>
     <string name="welcome">Welcome to BeerApp!</string>
     <string name="aboutButton">About</string>
+
+    <string-array name="beerStyles">
+        <item> Ale </item>
+        <item> Bread Beer </item>
+        <item> Dubbel </item>
+        <item> Framboise </item>
+        <item> Grodziskie </item>
+        <item> Gueuze </item>
+        <item> Hard Soda </item>
+        <item> Ice Beer </item>
+        <item> IPA </item>
+        <item> Lager </item>
+        <item> Lambic </item>
+        <item> Light Beer </item>
+        <item> Malt Liquor </item>
+        <item> Oud Bruin </item>
+        <item> Pilsner </item>
+        <item> Porter </item>
+        <item> Rye Beer </item>
+        <item> Saison </item>
+        <item> Sour Beer  </item>
+        <item> Stout </item>
+        <item> Wheat Beer </item>
+    </string-array>
+
 </resources>
