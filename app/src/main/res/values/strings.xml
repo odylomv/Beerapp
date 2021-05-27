@@ -34,4 +34,29 @@
         <item> Wheat Beer </item>
     </string-array>
 
+    <string-array name="beerImageLinks">
+        <item> https://upload.wikimedia.org/wikipedia/commons/6/6b/Real_Ale_2004-05-09_cropped.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Earl_Grey_Pale_Ale_can_-_Andy_Mabbett.jpg/800px-Earl_Grey_Pale_Ale_can_-_Andy_Mabbett.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Westmalle_Dubbel_7.jpg/800px-Westmalle_Dubbel_7.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/0/06/Timmermans_framboise.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Piwo_z_Grodziska_2.jpg/800px-Piwo_z_Grodziska_2.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Geuze10.JPG/800px-Geuze10.JPG </item>
+        <item> https://products0.imgix.drizly.com/ci-henrys-orange-soda-97acc8b94ab10a44.png </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ice_beer_%2820064322654%29.jpg/1280px-Ice_beer_%2820064322654%29.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/8/8f/Brewdog-hardcore-ipa_%28cropped%29.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Bitburger_Glass.JPG/1920px-Bitburger_Glass.JPG </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/3/30/Bieren_uit_de_streek_rond_brussel.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flickr_-_cyclonebill_-_%C3%98l_og_snaps.jpg/1280px-Flickr_-_cyclonebill_-_%C3%98l_og_snaps.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/CountryClubShiner.jpg/800px-CountryClubShiner.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/LiefmansOudbruin.jpg/1024px-LiefmansOudbruin.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/d/da/Pilsner_urquell_mug.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Porter_Example_%28cropped%29.jpg/800px-Porter_Example_%28cropped%29.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Terrapin_Brewing_Co._Rye_Squared_Imperial_Pale_Ale.jpg/800px-Terrapin_Brewing_Co._Rye_Squared_Imperial_Pale_Ale.jpg</item>
+        <item> https://en.wikipedia.org/wiki/Saison#/media/File:Saison_Dupont.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Norwegian_sour_beer.jpg/800px-Norwegian_sour_beer.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Stadin_Panimo_Double_Oat_Malt_Stout.jpg/800px-Stadin_Panimo_Double_Oat_Malt_Stout.jpg</item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2013_Augustiner_Weissbier_Munich_pub.jpg/800px-2013_Augustiner_Weissbier_Munich_pub.jpg </item>
+    </string-array>
+
+
 </resources>
