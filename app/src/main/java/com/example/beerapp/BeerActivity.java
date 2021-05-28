@@ -32,6 +32,7 @@ public class BeerActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
+
         if (intent != null) {
             int beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class
             beer = new Beer(beerStyles[beerId],beerId,"This could be a short pipi", "This could be looong pipi",beerImageLinks[beerId]);

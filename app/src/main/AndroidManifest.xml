@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beerapp">
         <activity android:name=".BeerActivity"></activity>
+        <activity android:name=".ExploreActivity"/>
         <activity android:name=".FavoritesActivity" />
         <activity android:name=".BeerCarousel" />
         <activity android:name=".About" />

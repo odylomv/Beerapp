@@ -10,6 +10,32 @@
     <string name="welcome">Welcome to BeerApp!</string>
     <string name="aboutButton">About</string>
 
+
+
+    <string-array name="beerImageLinks">
+        <item> https://upload.wikimedia.org/wikipedia/commons/6/6b/Real_Ale_2004-05-09_cropped.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Earl_Grey_Pale_Ale_can_-_Andy_Mabbett.jpg/800px-Earl_Grey_Pale_Ale_can_-_Andy_Mabbett.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Westmalle_Dubbel_7.jpg/800px-Westmalle_Dubbel_7.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/0/06/Timmermans_framboise.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Piwo_z_Grodziska_2.jpg/800px-Piwo_z_Grodziska_2.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Geuze10.JPG/800px-Geuze10.JPG </item>
+        <item> https://products0.imgix.drizly.com/ci-henrys-orange-soda-97acc8b94ab10a44.png </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ice_beer_%2820064322654%29.jpg/1280px-Ice_beer_%2820064322654%29.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/8/8f/Brewdog-hardcore-ipa_%28cropped%29.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Bitburger_Glass.JPG/1920px-Bitburger_Glass.JPG </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/3/30/Bieren_uit_de_streek_rond_brussel.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flickr_-_cyclonebill_-_%C3%98l_og_snaps.jpg/1280px-Flickr_-_cyclonebill_-_%C3%98l_og_snaps.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/CountryClubShiner.jpg/800px-CountryClubShiner.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/LiefmansOudbruin.jpg/1024px-LiefmansOudbruin.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/d/da/Pilsner_urquell_mug.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Porter_Example_%28cropped%29.jpg/800px-Porter_Example_%28cropped%29.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Terrapin_Brewing_Co._Rye_Squared_Imperial_Pale_Ale.jpg/800px-Terrapin_Brewing_Co._Rye_Squared_Imperial_Pale_Ale.jpg</item>
+        <item> https://en.wikipedia.org/wiki/Saison#/media/File:Saison_Dupont.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Norwegian_sour_beer.jpg/800px-Norwegian_sour_beer.jpg </item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Stadin_Panimo_Double_Oat_Malt_Stout.jpg/800px-Stadin_Panimo_Double_Oat_Malt_Stout.jpg</item>
+        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2013_Augustiner_Weissbier_Munich_pub.jpg/800px-2013_Augustiner_Weissbier_Munich_pub.jpg </item>
+    </string-array>
+
     <string-array name="beerStyles">
         <item> Ale </item>
         <item> Bread Beer </item>
@@ -34,28 +60,32 @@
         <item> Wheat Beer </item>
     </string-array>
 
-    <string-array name="beerImageLinks">
-        <item> https://upload.wikimedia.org/wikipedia/commons/6/6b/Real_Ale_2004-05-09_cropped.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Earl_Grey_Pale_Ale_can_-_Andy_Mabbett.jpg/800px-Earl_Grey_Pale_Ale_can_-_Andy_Mabbett.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Westmalle_Dubbel_7.jpg/800px-Westmalle_Dubbel_7.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/0/06/Timmermans_framboise.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Piwo_z_Grodziska_2.jpg/800px-Piwo_z_Grodziska_2.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Geuze10.JPG/800px-Geuze10.JPG </item>
-        <item> https://products0.imgix.drizly.com/ci-henrys-orange-soda-97acc8b94ab10a44.png </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ice_beer_%2820064322654%29.jpg/1280px-Ice_beer_%2820064322654%29.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/8/8f/Brewdog-hardcore-ipa_%28cropped%29.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Bitburger_Glass.JPG/1920px-Bitburger_Glass.JPG </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/3/30/Bieren_uit_de_streek_rond_brussel.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flickr_-_cyclonebill_-_%C3%98l_og_snaps.jpg/1280px-Flickr_-_cyclonebill_-_%C3%98l_og_snaps.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/CountryClubShiner.jpg/800px-CountryClubShiner.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/LiefmansOudbruin.jpg/1024px-LiefmansOudbruin.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/d/da/Pilsner_urquell_mug.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Porter_Example_%28cropped%29.jpg/800px-Porter_Example_%28cropped%29.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Terrapin_Brewing_Co._Rye_Squared_Imperial_Pale_Ale.jpg/800px-Terrapin_Brewing_Co._Rye_Squared_Imperial_Pale_Ale.jpg</item>
-        <item> https://en.wikipedia.org/wiki/Saison#/media/File:Saison_Dupont.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Norwegian_sour_beer.jpg/800px-Norwegian_sour_beer.jpg </item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Stadin_Panimo_Double_Oat_Malt_Stout.jpg/800px-Stadin_Panimo_Double_Oat_Malt_Stout.jpg</item>
-        <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2013_Augustiner_Weissbier_Munich_pub.jpg/800px-2013_Augustiner_Weissbier_Munich_pub.jpg </item>
+    <string-array name="shortDescriptions">
+
+        <item>Ale is a type of beer brewed using a warm fermentation method, resulting in a sweet,
+            full-bodied and fruity taste. Historically, the term referred to a drink brewed without hops.</item>
+        <item> Beer made from bread instead of cereal grains </item>
+        <item>  A strong version of a brown beer brewed in Westmalle Abbey in 1856, which is known to have been on sale to the public by June 1861 </item>
+        <item> a Belgian lambic beer that is fermented using raspberries. It is one of
+            many modern types of fruit beer that have been inspired by the more traditional kriek beer, which is made using sour cherries </item>
+        <item> A historical style of beer from Poland that is typically made from oak-smoked wheat malt. </item>
+        <item> Belgian beer made by blending young (1-year-old) and old (2- to 3-year-old) lambics, which is bottled for a second fermentation. </item>
+        <item> A type of alcoholic beverage and craft beer that is manufactured in the style of a soft drink.  </item>
+        <item> A beer that has undergone some degree of fractional freezing during production</item>
+        <item> A hoppy beer style within the broader category of pale ale</item>
+        <item> A  beer which has been brewed and conditioned at low temperature. </item>
+        <item> A type of beer brewed in the Pajottenland region of Belgium southwest of Brussels and in Brussels itself since the 13th century.  </item>
+        <item> A beer, usually a pale lager, that is reduced in alcohol content or in calories compared to regular beers </item>
+        <item> A  beer with high alcohol content </item>
+        <item> Also known as Flanders Brown, is a style of beer originating from the Flemish region of Belgium</item>
+        <item>  A type of pale lager. It takes its name from the Bohemian city of Pilsen (Plzeň), where it was first produced in 1842 by Bavarian brewer Josef Groll.</item>
+        <item> A style of beer that was developed in London, England in the early eighteenth century.[1] It was well-hopped and dark in appearance owing to the use of brown malt </item>
+        <item> Rye beer refers to any beer in which rye (generally malted) is substituted for some portion of the barley. </item>
+        <item> A pale ale that is highly carbonated, fruity, spicy, and often bottle conditioned </item>
+        <item> Sour beer is beer which has an intentionally acidic, tart, or sour taste.
+            Traditional sour beer styles include Belgian lambics, gueuze and Flanders red ale, and German gose </item>
+        <item> Stout is a dark, top-fermented beer with a number of variations, including dry stout, oatmeal stout, milk stout, and imperial stout. </item>
+        <item> Wheat beer is a top-fermented beer which is brewed with a large proportion of wheat relative to the amount of malted barley. </item>
     </string-array>
 
 

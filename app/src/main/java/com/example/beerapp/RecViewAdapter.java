@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -22,12 +21,12 @@ import java.util.ArrayList;
 
 import static com.example.beerapp.BeerActivity.BEER_ID_KEY;
 
-public class FavoriteRecViewAdapter extends RecyclerView.Adapter<FavoriteRecViewAdapter.ViewHolder> {
+public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private static final String TAG = "FavoriteRecViewAdapter";
     private ArrayList<Beer> beers = new ArrayList<>();
     private Context context;
 
-    public FavoriteRecViewAdapter(Context context) {
+    public RecViewAdapter(Context context) {
         this.context = context;
     }
 
@@ -45,7 +44,7 @@ public class FavoriteRecViewAdapter extends RecyclerView.Adapter<FavoriteRecView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull FavoriteRecViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull RecViewAdapter.ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Called");
         holder.beerTitle.setText(beers.get(position).getName());
 
