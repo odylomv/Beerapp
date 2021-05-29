@@ -1,8 +1,11 @@
 package com.example.beerapp;
 
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +23,12 @@ public class ExploreActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
+
+        //Creating action bar
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#e2d1c3"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
 
         setContentView(R.layout.activity_explore);

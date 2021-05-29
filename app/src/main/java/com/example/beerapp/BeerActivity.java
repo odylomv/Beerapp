@@ -1,10 +1,13 @@
 package com.example.beerapp;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +37,12 @@ public class BeerActivity extends AppCompatActivity {
         aloneLongDesc = findViewById(R.id.aloneLongDesc);
         addToFavBtn = findViewById(R.id.addtoFavBtn);
         addToFvHeart = findViewById(R.id.addToFvHeart);
+
+        //Creating action bar
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#e2d1c3"));
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         //Beer beer = new Beer("Pipi", 0, "Short Pipi lolololo", "longPipi lololo", "https://www.csd.auth.gr/wp-content/uploads/2019/08/Tefas2020small-240x300.jpg");
 

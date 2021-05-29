@@ -2,21 +2,14 @@ package com.example.beerapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.bumptech.glide.load.engine.Resource;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Button exploreButton;
@@ -29,17 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // Define ActionBar object
         ActionBar actionBar;
         actionBar = getSupportActionBar();
-
-        // Define ColorDrawable object and parse color
-        // using parseColor method
-        // with color hash code as its parameter
-        ColorDrawable colorDrawable
-                = new ColorDrawable(Color.parseColor("#e2d1c3"));
-
-        // Set BackgroundDrawable
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#e2d1c3"));
         actionBar.setBackgroundDrawable(colorDrawable);
 
         Resources res = getResources();
@@ -69,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAbout(View view){
-        Intent intent = new Intent(this, About.class);
+        Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
 

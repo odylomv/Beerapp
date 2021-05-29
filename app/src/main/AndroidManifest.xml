@@ -15,7 +15,7 @@
         <activity android:name=".ExploreActivity"/>
         <activity android:name=".FavoritesActivity" />
         <activity android:name=".BeerCarousel" />
-        <activity android:name=".About" />
+        <activity android:name=".AboutActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

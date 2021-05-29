@@ -5,7 +5,8 @@
     android:id="@+id/addToFavHeart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BeerActivity">
+    tools:context=".BeerActivity"
+    android:background="@drawable/gradient_background">>
 
     <ImageView
         android:id="@+id/aloneBeerpic"
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
+        android:fontFamily="@font/holtzbergregular"
         android:text="Insert title here"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +52,7 @@
         android:id="@+id/aloneLongDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/holtzbergregular"
         android:text="Long description goes here"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

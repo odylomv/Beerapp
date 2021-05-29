@@ -8,18 +8,22 @@
     app:cardElevation="15dp"
     android:layout_centerInParent="true"
     android:layout_marginHorizontal="40dp"
-    android:layout_marginBottom="15dp">
+    android:layout_marginBottom="15dp"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Insert Title"
             android:id="@+id/beerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"
-            />
+            android:fontFamily="@font/holtzbergregular"
+            android:gravity="center_vertical"
+            android:text="Insert Title" />
 
         <ImageView
             android:id="@+id/beerPic"
@@ -30,15 +34,15 @@
             android:src="@drawable/beer1" />
 
         <TextView
+            android:id="@+id/beerShortDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Short Description goes here \n Many lines bla bla bla"
             android:layout_below="@id/beerPic"
             android:layout_centerHorizontal="true"
-            android:id="@+id/beerShortDescription"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/holtzbergregular"
 
-            />
+            android:text="Short Description goes here \n Many lines bla bla bla" />
 
     </RelativeLayout>
 
