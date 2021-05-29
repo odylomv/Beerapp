@@ -23,6 +23,7 @@ public class ExploreActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
+        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
 
         //Creating action bar
         ActionBar actionBar;
@@ -41,7 +42,7 @@ public class ExploreActivity extends AppCompatActivity {
         ArrayList<Beer> beers = new ArrayList<>();
 
         for(int i=0; i<beerStyles.length;i++)
-            beers.add(new Beer(beerStyles[i], i, "tasos tefas", "taaaaaaaasos teeeeeeeeeefas", beerImageLinks[i]));
+            beers.add(new Beer(beerStyles[i], i, beerShortDesc[i], "taaaaaaaasos teeeeeeeeeefas", beerImageLinks[i]));
 
         adapter.setBeers(beers);
     }

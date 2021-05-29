@@ -36,6 +36,34 @@
         <item> https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2013_Augustiner_Weissbier_Munich_pub.jpg/800px-2013_Augustiner_Weissbier_Munich_pub.jpg </item>
     </string-array>
 
+    <string-array name="shortDescriptions">
+
+        <item>Ale is a type of beer brewed using a warm fermentation method, resulting in a sweet,
+            full-bodied and fruity taste. Historically, the term referred to a drink brewed without hops.</item>
+        <item> Beer made from bread instead of cereal grains </item>
+        <item>  A strong version of a brown beer brewed in Westmalle Abbey in 1856, which is known to have been on sale to the public by June 1861 </item>
+        <item> A Belgian lambic beer that is fermented using raspberries. It is one of
+            many modern types of fruit beer that have been inspired by the more traditional kriek beer, which is made using sour cherries </item>
+        <item> A historical style of beer from Poland that is typically made from oak-smoked wheat malt. </item>
+        <item> Belgian beer made by blending young (1-year-old) and old (2- to 3-year-old) lambics, which is bottled for a second fermentation. </item>
+        <item> A type of alcoholic beverage and craft beer that is manufactured in the style of a soft drink.  </item>
+        <item> A beer that has undergone some degree of fractional freezing during production</item>
+        <item> A hoppy beer style within the broader category of pale ale</item>
+        <item> A  beer which has been brewed and conditioned at low temperature. </item>
+        <item> A type of beer brewed in the Pajottenland region of Belgium southwest of Brussels and in Brussels itself since the 13th century.  </item>
+        <item> A beer, usually a pale lager, that is reduced in alcohol content or in calories compared to regular beers </item>
+        <item> A  beer with high alcohol content </item>
+        <item> Also known as Flanders Brown, is a style of beer originating from the Flemish region of Belgium</item>
+        <item>  A type of pale lager. It takes its name from the Bohemian city of Pilsen (Plzeň), where it was first produced in 1842 by Bavarian brewer Josef Groll.</item>
+        <item> A style of beer that was developed in London, England in the early eighteenth century.[1] It was well-hopped and dark in appearance owing to the use of brown malt </item>
+        <item> Rye beer refers to any beer in which rye (generally malted) is substituted for some portion of the barley. </item>
+        <item> A pale ale that is highly carbonated, fruity, spicy, and often bottle conditioned </item>
+        <item> Sour beer is beer which has an intentionally acidic, tart, or sour taste.
+            Traditional sour beer styles include Belgian lambics, gueuze and Flanders red ale, and German gose </item>
+        <item> Stout is a dark, top-fermented beer with a number of variations, including dry stout, oatmeal stout, milk stout, and imperial stout. </item>
+        <item> Wheat beer is a top-fermented beer which is brewed with a large proportion of wheat relative to the amount of malted barley. </item>
+    </string-array>
+
     <string-array name="beerStyles">
         <item> Ale </item>
         <item> Bread Beer </item>
@@ -60,32 +88,60 @@
         <item> Wheat Beer </item>
     </string-array>
 
-    <string-array name="shortDescriptions">
+    <string-array name="longDescriptions">
+        <item> As with most beers, ale typically has a bittering agent to balance the malt and act as a preservative. Ale was originally bittered with gruit,
+            a mixture of herbs or spices boiled in the wort before fermentation. Later, hops replaced gruit as the bittering agent. Ale was an important source
+            of nutrition in the medieval world. It was one of three main sources of grains at the start of the fourteenth century in England, along with pottage
+            and breads. Scholars believe grains accounted for around 80% of the calorie intake of agricultural workers and 75% for soldiers. Even nobles received
+            around 65% of their calories from grains. Small beer, also known as table beer or mild beer, which was highly nutritious, contained just enough alcohol
+            to act as a preservative, and provided hydration without intoxicating effects. Small beer would have been consumed daily by almost everyone,
+            including children, in the medieval world, with higher-alcohol ales served for recreational purposes. The lower cost for proprietors combined with the
+            lower taxes levied on small beer led to the selling of beer labeled "strong beer" that had actually been diluted with small beer. </item>
 
-        <item>Ale is a type of beer brewed using a warm fermentation method, resulting in a sweet,
-            full-bodied and fruity taste. Historically, the term referred to a drink brewed without hops.</item>
-        <item> Beer made from bread instead of cereal grains </item>
-        <item>  A strong version of a brown beer brewed in Westmalle Abbey in 1856, which is known to have been on sale to the public by June 1861 </item>
-        <item> a Belgian lambic beer that is fermented using raspberries. It is one of
-            many modern types of fruit beer that have been inspired by the more traditional kriek beer, which is made using sour cherries </item>
-        <item> A historical style of beer from Poland that is typically made from oak-smoked wheat malt. </item>
-        <item> Belgian beer made by blending young (1-year-old) and old (2- to 3-year-old) lambics, which is bottled for a second fermentation. </item>
-        <item> A type of alcoholic beverage and craft beer that is manufactured in the style of a soft drink.  </item>
-        <item> A beer that has undergone some degree of fractional freezing during production</item>
-        <item> A hoppy beer style within the broader category of pale ale</item>
-        <item> A  beer which has been brewed and conditioned at low temperature. </item>
-        <item> A type of beer brewed in the Pajottenland region of Belgium southwest of Brussels and in Brussels itself since the 13th century.  </item>
-        <item> A beer, usually a pale lager, that is reduced in alcohol content or in calories compared to regular beers </item>
-        <item> A  beer with high alcohol content </item>
-        <item> Also known as Flanders Brown, is a style of beer originating from the Flemish region of Belgium</item>
-        <item>  A type of pale lager. It takes its name from the Bohemian city of Pilsen (Plzeň), where it was first produced in 1842 by Bavarian brewer Josef Groll.</item>
-        <item> A style of beer that was developed in London, England in the early eighteenth century.[1] It was well-hopped and dark in appearance owing to the use of brown malt </item>
-        <item> Rye beer refers to any beer in which rye (generally malted) is substituted for some portion of the barley. </item>
-        <item> A pale ale that is highly carbonated, fruity, spicy, and often bottle conditioned </item>
-        <item> Sour beer is beer which has an intentionally acidic, tart, or sour taste.
-            Traditional sour beer styles include Belgian lambics, gueuze and Flanders red ale, and German gose </item>
-        <item> Stout is a dark, top-fermented beer with a number of variations, including dry stout, oatmeal stout, milk stout, and imperial stout. </item>
-        <item> Wheat beer is a top-fermented beer which is brewed with a large proportion of wheat relative to the amount of malted barley. </item>
+        <item> Beers made from bread include Sahti in Finland, Kvass in Russia and Ukraine, and Bouza in Egypt and Sudan.
+            In several countries, 'Toast Ale' is made—in a range of styles—from surplus bread from the catering trade, as part of a campaign to reduce food waste.
+            The recipe is open source. Inspired by this, Adnams brewed a range of three beers exclusively for Marks and Spencer in 2018,
+            using leftover bread from the store's sandwich suppliers. All the waste bread was then used as animal feed. </item>
+
+        <item> Westmalle's Dubbel was imitated by other breweries across the world, both Trappist and secular, leading to the emergence of a style. Dubbels are now understood to be a fairly strong
+            (6–8% alcohol by volume) brown ale, with understated bitterness, fairly heavy body, and a pronounced fruitiness and cereal character.
+            Dubbels are characteristically known for being dark brown in colour with a strong flavour of dark fruit including raisins, prunes, and dates.
+            These flavours and colours are almost entirely resultant from the heavy addition of highly caramelized (or kilned) beet sugar, which
+            ferments completely into alcohol, lightening the body of the finished beer and contributing to its dry finish. The caramelization of the beet sugar is
+            also the major contributor of maillard flavors including chocolatey, caramel, and nutty tones that give the dubbel its wide gamut of flavour complexity.
+            Because of the special strains of ale yeast used in their production, dubbels often carry a mild spice; coriander and black pepper are notable examples in traditional Belgian dubbels. </item>
+
+        <item> Framboise is usually served in a small footed glass that resembles a champagne flute, only shorter. Most framboise beers are quite sweet, though the Cantillon Brewery produces a tart
+            version called Rosé de Gambrinus that is based on the traditional kriek style. The Liefmans brewery uses oud bruin beer instead of lambic to make its framboise beer, resulting in a very different taste.
+            There are other beers outside of Belgium, however, that can be considered "framboise."
+            For example, the New Glarus Brewing Company in Wisconsin produces a beer called "Raspberry Tart" which they describe as a "Wisconsin Framboise Ale. </item>
+
+        <item> The beer can be described as having a clear, light golden color, high carbonation, low alcohol content, low to moderate levels of hop bitterness, and a
+            strong smoke flavor and aroma. The taste is light and crisp, with primary flavors coming from the smoked malt, the high mineral content of the water, and
+            the strain of yeast used to ferment the beverage. The beer was nicknamed "Polish Champagne" because of its high carbonation levels, and because it was
+            valued as a high-quality beverage to be used for special occasions. Grodziskie is brewed from wheat malt that has been dried by circulating oak smoke
+            through the grains. The smokiness of the grain and the mineral profile of the water used to brew the beverage gives the style its characteristic flavor.
+            Polish breweries historically used locally grown hops and one or two strains of brewer's yeast in its production. Before packaging, the beer is filtered
+            to produce a bright, clear appearance. The beer is packaged before all of the fermentable sugars have been converted to alcohol by the yeast, earlier in
+            the process than is typical in beers. Fermentation continues after packaging, and the carbon dioxide that is produced remains dissolved in the beer,
+            resulting in a very high level of carbonation in the final product. </item>
+
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
+        <item>  </item>
     </string-array>
 
 
