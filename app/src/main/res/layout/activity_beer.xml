@@ -5,8 +5,8 @@
     android:id="@+id/addToFavHeart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BeerActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".BeerActivity">
 
     <ImageView
         android:id="@+id/aloneBeerpic"
@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
-        app:srcCompat="@drawable/beer1" />
+        app:srcCompat="@drawable/beer1"
+        android:contentDescription="Beer Image" />
 
     <TextView
         android:id="@+id/aloneBeerName"
@@ -30,23 +31,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/addtoFavBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="11dp"
-        android:background="#785B5B"
-        android:drawableStart="@drawable/ic_baseline_favorite_border_24"
-        android:drawableLeft="@drawable/ic_baseline_favorite_border_24"
-        android:text="Favorite"
-        app:layout_constraintBottom_toTopOf="@+id/aloneBeerpic"
-        app:layout_constraintEnd_toEndOf="@+id/aloneBeerName"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="@+id/aloneBeerName"
-        app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
-        app:layout_constraintVertical_bias="0.464" />
 
     <TextView
         android:id="@+id/aloneLongDesc"
@@ -67,12 +51,10 @@
         android:background="#e2d1c3"
         android:tint="#6D6060"
         app:layout_constraintBottom_toTopOf="@+id/aloneBeerpic"
-        app:layout_constraintEnd_toEndOf="@+id/aloneBeerName"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/addtoFavBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
-        app:layout_constraintVertical_bias="0.473"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24"
-        />
+        android:contentDescription="Favorite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

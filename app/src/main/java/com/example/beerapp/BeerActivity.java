@@ -8,8 +8,6 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +18,6 @@ public class BeerActivity extends AppCompatActivity {
     public static final String BEER_ID_KEY = "beerId";
     private TextView aloneBeerName, aloneLongDesc;
     private ImageView aloneBeerPic;
-    private Button addToFavBtn;
     private ImageButton addToFvHeart;
     private boolean isFavorite;
 
@@ -32,7 +29,6 @@ public class BeerActivity extends AppCompatActivity {
         aloneBeerName = findViewById(R.id.aloneBeerName);
         aloneBeerPic = findViewById(R.id.aloneBeerpic);
         aloneLongDesc = findViewById(R.id.aloneLongDesc);
-        addToFavBtn = findViewById(R.id.addtoFavBtn);
         addToFvHeart = findViewById(R.id.addToFvHeart);
 
 
