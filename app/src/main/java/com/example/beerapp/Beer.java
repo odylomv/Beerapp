@@ -1,12 +1,13 @@
 package com.example.beerapp;
 
 public class Beer {
-    private String name;
     private int id;
+    private String name;
     private String shortDescription;
     private String longDescription;
     private String imgSource;
 
+    public Beer() { }
 
     public Beer(String name, int id, String shortDescription, String longDescription, String imgSource) {
         this.name = name;
@@ -14,9 +15,6 @@ public class Beer {
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
         this.imgSource = imgSource;
-    }
-
-    public Beer() {
     }
 
     public void setName(String name) {
@@ -42,6 +40,7 @@ public class Beer {
     public String getImgSource() {
         return imgSource;
     }
+
     public String getShortDescription() {
         return shortDescription;
     }
@@ -57,5 +56,4 @@ public class Beer {
     public void setLongDescription(String longDescription) {
         this.longDescription = longDescription;
     }
-
 }

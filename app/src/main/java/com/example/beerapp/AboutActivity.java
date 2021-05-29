@@ -8,16 +8,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 public class AboutActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        //Creating action bar
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#e2d1c3"));
-        actionBar.setBackgroundDrawable(colorDrawable);
+        // Fetch ActionBar instance
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#e2d1c3"));
+            actionBar.setBackgroundDrawable(colorDrawable);
+        }
     }
 }

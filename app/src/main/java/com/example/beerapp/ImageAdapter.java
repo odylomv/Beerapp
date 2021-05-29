@@ -8,14 +8,11 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import org.jetbrains.annotations.NotNull;
-
 public class ImageAdapter extends PagerAdapter {
-
     private Context mContext;
     private int[] mImageIds = new int[] {R.drawable.beer1,R.drawable.beer2,R.drawable.beer3};
 
-    ImageAdapter(Context context){
+    public ImageAdapter(Context context){
         mContext = context;
     }
 
@@ -24,8 +21,7 @@ public class ImageAdapter extends PagerAdapter {
         return mImageIds.length;
     }
 
-
-    @Override
+    @Override @NonNull
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = new ImageView(mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -35,13 +31,12 @@ public class ImageAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
         container.removeView((ImageView) object);
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
     }
-
 }

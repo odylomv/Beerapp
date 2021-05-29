@@ -15,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 import static com.example.beerapp.BeerActivity.BEER_ID_KEY;
@@ -24,7 +22,7 @@ import static com.example.beerapp.BeerActivity.BEER_ID_KEY;
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private static final String TAG = "FavoriteRecViewAdapter";
     private ArrayList<Beer> beers = new ArrayList<>();
-    private Context context;
+    private final Context context;
 
     public RecViewAdapter(Context context) {
         this.context = context;
@@ -35,16 +33,14 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         notifyDataSetChanged();
     }
 
-    @NonNull
-    @NotNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    @Override @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_beer,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull RecViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecViewAdapter.ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Called");
         holder.beerTitle.setText(beers.get(position).getName());
         holder.beerShortDisc.setText(beers.get(position).getShortDescription());
@@ -52,22 +48,19 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         Glide.with(context).asBitmap().
                 load(beers.get(position).getImgSource())
                 .into(holder.beerPic);
-        holder.parent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, BeerActivity.class);
-                intent.putExtra(BEER_ID_KEY,beers.get(position).getId());
-                context.startActivity(intent);
-            }
-        });
 
+        holder.parent.setOnClickListener(view -> {
+            Intent intent = new Intent(context, BeerActivity.class);
+            intent.putExtra(BEER_ID_KEY,beers.get(position).getId());
+            context.startActivity(intent);
+        });
     }
+
     public Beer getBeerById(int id) {
-        for(Beer beer:beers){
-            if(beer.getId() == id){
+        for(Beer beer : beers)
+            if(beer.getId() == id)
                 return beer;
-            }
-        }
+
         return null;
     }
 
@@ -76,19 +69,18 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         return beers.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        private CardView parent;
-        private ImageView beerPic;
-        private TextView beerTitle;
-        private TextView beerShortDisc;
-        public ViewHolder(@NonNull @NotNull View itemView) {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final CardView parent;
+        private final ImageView beerPic;
+        private final TextView beerTitle;
+        private final TextView beerShortDisc;
+
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
             beerPic = itemView.findViewById(R.id.beerPic);
             beerTitle = itemView.findViewById(R.id.beerTitle);
             beerShortDisc = itemView.findViewById(R.id.beerShortDescription);
-
         }
     }
-
 }
