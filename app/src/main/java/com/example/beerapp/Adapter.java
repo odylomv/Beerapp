@@ -25,11 +25,12 @@ public class Adapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject( @NotNull View view, @NotNull Object object) {
+    public boolean isViewFromObject(@NonNull @NotNull View view, @NonNull @NotNull Object object) {
         return view==object;
     }
 
 
+    @NonNull
     @NotNull
     @Override
     public Object instantiateItem(@NotNull ViewGroup container, int position) {
@@ -38,10 +39,5 @@ public class Adapter extends PagerAdapter {
         imageView.setImageResource(imageArray[position]);
         container.addView(imageView,0);
         return imageView;
-    }
-
-    @Override
-    public void destroyItem(@NonNull ViewGroup container, int position,@NotNull Object object) {
-        container.removeView((ImageView)object);
     }
 }
