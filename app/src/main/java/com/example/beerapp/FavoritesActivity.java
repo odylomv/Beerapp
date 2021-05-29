@@ -23,6 +23,7 @@ public class FavoritesActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
+        String [] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
 
         //Creating action bar
         ActionBar actionBar;
@@ -41,7 +42,7 @@ public class FavoritesActivity extends AppCompatActivity {
         ArrayList <Beer> beers = new ArrayList<>();
 
         //only laod 1 beer
-        beers.add(new Beer(beerStyles[0], 0, "Short Pipi lolololo", "longPipi lololo", beerImageLinks[0]));
+        beers.add(new Beer(beerStyles[0], 0, beerShortDesc[0], beerShortDesc[0], beerImageLinks[0])); //temporarily using short desc as long, needs to change
 
         adapter.setBeers(beers);
     }
