@@ -47,6 +47,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     public void onBindViewHolder(@NonNull @NotNull RecViewAdapter.ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Called");
         holder.beerTitle.setText(beers.get(position).getName());
+        holder.beerShortDisc.setText(beers.get(position).getShortDescription());
 
         Glide.with(context).asBitmap().
                 load(beers.get(position).getImgSource())

@@ -41,8 +41,10 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/holtzbergregular"
-
-            android:text="Short Description goes here \n Many lines bla bla bla" />
+            android:gravity="center_horizontal"
+            android:text="Here lies the short desc"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 

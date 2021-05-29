@@ -38,6 +38,7 @@ public class BeerActivity extends AppCompatActivity {
         addToFavBtn = findViewById(R.id.addtoFavBtn);
         addToFvHeart = findViewById(R.id.addToFvHeart);
 
+
         //Creating action bar
         ActionBar actionBar;
         actionBar = getSupportActionBar();
