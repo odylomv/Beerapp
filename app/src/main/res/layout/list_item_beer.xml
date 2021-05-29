@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:layout_marginHorizontal="40dp"
     android:layout_marginBottom="15dp"
-    >
-    <RelativeLayout
+    app:cardCornerRadius="10dp"
+    app:cardElevation="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient_background">
@@ -18,34 +19,53 @@
         <TextView
             android:id="@+id/beerTitle"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="8dp"
             android:fontFamily="@font/holtzbergregular"
-            android:gravity="center_vertical"
-            android:text="Insert Title" />
+            android:gravity="center_horizontal"
+            android:text="Insert Title"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/beerPic"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/beerPic"
             android:layout_width="300dp"
             android:layout_height="400dp"
-            android:layout_below="@+id/beerTitle"
-            android:layout_marginTop="-16dp"
-            android:src="@drawable/beer1" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:adjustViewBounds="false"
+            android:contentDescription="Beer Image"
+            android:cropToPadding="false"
+            android:src="@drawable/beer1"
+            app:layout_constraintBottom_toTopOf="@+id/beerShortDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/beerTitle" />
 
         <TextView
             android:id="@+id/beerShortDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/beerPic"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/holtzbergregular"
             android:gravity="center_horizontal"
             android:text="Here lies the short desc"
             android:textAlignment="center"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/beerPic" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
