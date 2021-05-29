@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BeerActivity"
-    android:background="@drawable/gradient_background">>
+    android:background="@drawable/gradient_background">
 
     <ImageView
         android:id="@+id/aloneBeerpic"
@@ -64,7 +64,7 @@
         android:id="@+id/addToFvHeart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="#e2d1c3"
         android:tint="#6D6060"
         app:layout_constraintBottom_toTopOf="@+id/aloneBeerpic"
         app:layout_constraintEnd_toEndOf="@+id/aloneBeerName"
@@ -72,6 +72,7 @@
         app:layout_constraintStart_toEndOf="@+id/addtoFavBtn"
         app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
         app:layout_constraintVertical_bias="0.473"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

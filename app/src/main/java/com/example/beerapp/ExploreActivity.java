@@ -24,7 +24,7 @@ public class ExploreActivity extends AppCompatActivity {
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
         String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
-        //String[] beerLongDesc = res.getStringArray(R.array.longDescriptions);
+        String[] beerLongDesc = res.getStringArray(R.array.longDescriptions);
 
         //Creating action bar
         ActionBar actionBar;

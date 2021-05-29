@@ -53,10 +53,11 @@ public class BeerActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
+        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
 
         if (intent != null) {
-            int beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class
-            beer = new Beer(beerStyles[beerId],beerId,"This could be a short pipi", "This could be looong pipi",beerImageLinks[beerId]);
+            int beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class, load both short and long desc
+            beer = new Beer(beerStyles[beerId],beerId,beerShortDesc[beerId],beerShortDesc[beerId] ,beerImageLinks[beerId]); //using short desc as long temporarily
         }
 
         addToFvHeart.setOnClickListener(new View.OnClickListener() {

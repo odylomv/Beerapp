@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 public class Adapter extends PagerAdapter {
 
     private Context context;
-    private int[] imageArray = new int[]{R.drawable.beer1,R.drawable.beer2,R.drawable.beer3};
+    private int[] imageArray = new int[]{R.drawable.beer1,R.drawable.beer2,R.drawable.beer3, R.drawable.beer1, R.drawable.beer2};
 
     Adapter(Context ctx){context=ctx;}
 
