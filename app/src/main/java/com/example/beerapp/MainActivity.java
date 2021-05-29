@@ -2,6 +2,7 @@ package com.example.beerapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,6 +15,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button exploreButton;
     private Button favButton;
+    private Button aboutButton;
 
 
     @Override
@@ -51,11 +53,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        aboutButton = findViewById(R.id.buttonAbout);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Creating the carousel on the main page
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        Adapter adapter = new Adapter(this);
+        viewPager.setAdapter(adapter);
+
     }
 
-    public void openAbout(View view){
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
-    }
 
 }
