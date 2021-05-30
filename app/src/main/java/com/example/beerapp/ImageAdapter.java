@@ -8,12 +8,13 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+
 public class ImageAdapter extends PagerAdapter {
     private final Context context;
 
     private final int[] imageArray = { R.drawable.beer1, R.drawable.beer2, R.drawable.beer3,
             R.drawable.beer4, R.drawable.beer5, R.drawable.beer6, R.drawable.beer7, R.drawable.beer8, R.drawable.beer9, R.drawable.beer10,
-            R.drawable.beer11, R.drawable.beer12,};
+            R.drawable.beer11, R.drawable.beer12,}; //Initialize images array - load from drawable
 
     private final ImageView[] beerViews = new ImageView[imageArray.length];
 
@@ -30,6 +31,7 @@ public class ImageAdapter extends PagerAdapter {
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
     }
+
 
     @Override @NonNull
     public Object instantiateItem(@NonNull ViewGroup container, int position) {

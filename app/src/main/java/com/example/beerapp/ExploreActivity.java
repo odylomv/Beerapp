@@ -21,7 +21,7 @@ public class ExploreActivity extends AppCompatActivity {
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String[] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
-        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
+        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions); //load arrays from Strings.XML
         String[] beerLongDesc = res.getStringArray(R.array.longDescriptions);
 
         // Fetch ActionBar instance
