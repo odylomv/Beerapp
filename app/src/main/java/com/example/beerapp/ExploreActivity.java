@@ -19,10 +19,10 @@ public class ExploreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_explore);
 
         Resources res = getResources();
-        String[] beerStyles = res.getStringArray(R.array.beerStyles);
-        String[] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
-        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
-        String[] beerLongDesc = res.getStringArray(R.array.longDescriptions);
+        String[] beerStyles = res.getStringArray(R.array.beerStyles),
+                 beerImageLinks = res.getStringArray(R.array.beerImageLinks),
+                 beerShortDesc = res.getStringArray(R.array.shortDescriptions),
+                 beerLongDesc = res.getStringArray(R.array.longDescriptions);
 
         // Fetch ActionBar instance
         ActionBar actionBar = getSupportActionBar();
