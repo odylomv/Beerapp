@@ -25,40 +25,39 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setBackgroundDrawable(colorDrawable);
         }
 
-        Resources res = getResources();
-        String[] beerStyles = res.getStringArray(R.array.beerStyles);
-        String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
-
-        Button exploreButton = findViewById(R.id.buttonExplore);
-        exploreButton.setOnClickListener(view -> {
+        // Navigate to Explore page
+        findViewById(R.id.buttonExplore).setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, ExploreActivity.class);
             startActivity(intent);
         });
 
-        Button favButton = findViewById(R.id.buttonFavorites);
-        favButton.setOnClickListener(view -> {
+        // Navigate to Favorites page
+        findViewById(R.id.buttonFavorites).setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, FavoritesActivity.class);
             startActivity(intent);
         });
 
-        Button aboutButton = findViewById(R.id.buttonAbout);
-        aboutButton.setOnClickListener(view -> {
+        // Navigate to About page
+        findViewById(R.id.buttonAbout).setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
         });
 
-        // Creating the carousel on the main page
+        // Create the Carousel on the Main page
         ViewPager viewPager = findViewById(R.id.viewPager);
         ImageAdapter imageAdapter = new ImageAdapter(this);
         viewPager.setAdapter(imageAdapter);
+        // Move to the middle of the Carousel for seemingly infinite bi-directional scroll
         viewPager.setCurrentItem(imageAdapter.getCount() / 2, false);
 
+        // Scroll through Carousel using the arrows
         findViewById(R.id.leftArrow).setOnClickListener(view -> {
             if (viewPager.getCurrentItem() > 0)
                 viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
         });
+
         findViewById(R.id.rightArrow).setOnClickListener(view -> {
-            if (viewPager.getCurrentItem() + 1 < Objects.requireNonNull(viewPager.getAdapter()).getCount())
+            if (viewPager.getCurrentItem() + 1 < imageAdapter.getCount())
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
         });
     }

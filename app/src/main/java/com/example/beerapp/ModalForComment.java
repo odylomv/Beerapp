@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,7 @@ public class ModalForComment extends AppCompatDialogFragment {
 
     private EditText editTextComment;
     private ModalCommentListener listener;
-    private int beerId;
+    private final int beerId;
 
     public ModalForComment(int beerId) {
         this.beerId = beerId;
@@ -33,11 +32,11 @@ public class ModalForComment extends AppCompatDialogFragment {
         Utilities utilities = new Utilities(getActivity());
 
         String displayOnPositiveButton;
-        String commentstate = "";
+        String commentState;
         editTextComment = view.findViewById(R.id.editTextComment);
         if(utilities.getCommented().contains(beerId)){
             displayOnPositiveButton = "Modify comment";
-            commentstate = "EXISTING";
+            commentState = "EXISTING";
             try {
                 editTextComment.setText(utilities.getComment(beerId), TextView.BufferType.EDITABLE);
             }
@@ -47,37 +46,28 @@ public class ModalForComment extends AppCompatDialogFragment {
         }
         else{
             displayOnPositiveButton = "Add comment";
-            commentstate = "NEW";
+            commentState = "NEW";
         }
 
-        String finalCommentstate = commentstate;
+        String finalCommentState = commentState;
         builder.setView(view)
                 .setTitle("Comment")
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                })
-                .setPositiveButton(displayOnPositiveButton, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String comment = editTextComment.getText().toString().trim();
-                        listener.applyTexts(comment,finalCommentstate);
-                    }
+                .setNegativeButton("cancel", (dialogInterface, i) -> { })
+                .setPositiveButton(displayOnPositiveButton, (dialogInterface, i) -> {
+                    String comment = editTextComment.getText().toString().trim();
+                    listener.applyTexts(comment,finalCommentState);
                 });
 
-
         return builder.create();
-
     }
-    public interface ModalCommentListener{
+
+    public interface ModalCommentListener {
         void applyTexts(String comment,String state);
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        listener = (ModalCommentListener) context; //IMPORTANT if not impemented on Beer Activity rip
+        listener = (ModalCommentListener) context; // IMPORTANT RIP if not implemented on Beer Activity
     }
 }

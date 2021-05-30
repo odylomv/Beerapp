@@ -22,6 +22,7 @@ public class FavoritesActivity extends AppCompatActivity {
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String[] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
         String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
+        String[] beerLongDesc = res.getStringArray(R.array.longDescriptions);
 
         // Fetch ActionBar instance
         ActionBar actionBar = getSupportActionBar();
@@ -36,16 +37,11 @@ public class FavoritesActivity extends AppCompatActivity {
         favoritesRecyclerView.setAdapter(adapter);
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Get all favorite beers and add them to the list
         ArrayList <Beer> beers = new ArrayList<>();
-        ArrayList<Integer> beerIds = new ArrayList<>();
         Utilities utilities = new Utilities(FavoritesActivity.this);
-        beerIds = utilities.getFavorites();
-        for(Integer i : beerIds){
-            beers.add(new Beer(beerStyles[i],i,beerShortDesc[i], " ", beerImageLinks[i]));
-        }
-
-        //only load 1 beer
-        //beers.add(new Beer(beerStyles[0], 0, beerShortDesc[0], beerShortDesc[0], beerImageLinks[0])); //temporarily using short desc as long, needs to change
+        for(Integer i : utilities.getFavorites())
+            beers.add(new Beer(beerStyles[i], i, beerShortDesc[i], beerLongDesc[i], beerImageLinks[i]));
 
         adapter.setBeers(beers);
     }
