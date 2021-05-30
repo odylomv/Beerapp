@@ -37,9 +37,15 @@ public class FavoritesActivity extends AppCompatActivity {
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList <Beer> beers = new ArrayList<>();
+        ArrayList<Integer> beerIds = new ArrayList<>();
+        Utilities utilities = new Utilities(FavoritesActivity.this);
+        beerIds = utilities.getFavorites();
+        for(Integer i : beerIds){
+            beers.add(new Beer(beerStyles[i],i,beerShortDesc[i], " ", beerImageLinks[i]));
+        }
 
         //only load 1 beer
-        beers.add(new Beer(beerStyles[0], 0, beerShortDesc[0], beerShortDesc[0], beerImageLinks[0])); //temporarily using short desc as long, needs to change
+        //beers.add(new Beer(beerStyles[0], 0, beerShortDesc[0], beerShortDesc[0], beerImageLinks[0])); //temporarily using short desc as long, needs to change
 
         adapter.setBeers(beers);
     }

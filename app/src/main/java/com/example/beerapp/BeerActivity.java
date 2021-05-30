@@ -11,8 +11,11 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 
 public class BeerActivity extends AppCompatActivity {
     public static final String BEER_ID_KEY = "beerId";
@@ -49,19 +52,44 @@ public class BeerActivity extends AppCompatActivity {
         String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
 
         Intent intent = getIntent();
+        int beerId = -1;
         if (intent != null) {
-            int beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class, load both short and long desc
+            beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class, load both short and long desc
             beer = new Beer(beerStyles[beerId],beerId,beerShortDesc[beerId],beerShortDesc[beerId] ,beerImageLinks[beerId]); //using short desc as long temporarily
         }
 
+        /* this is supposed to check favorite status to display the appropriate heart*/
+        Utilities utilities = new Utilities(BeerActivity.this);
+        ArrayList<Integer> favs;
+
+        favs = utilities.getFavorites();
+        isFavorite = favs.contains(beerId);
+        if(isFavorite){
+            addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+        }
+        else{
+            addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+        }
+
+        int finalBeerId = beerId;
         addToFvHeart.setOnClickListener(view -> {
             // This is only temporary till db is done
-            if(!isFavorite)
-                addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
-            else
-                addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
-
-            isFavorite = !isFavorite;
+            try {
+                if (!isFavorite) {
+                    addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                    utilities.addFav(finalBeerId);
+                } else {
+                    System.out.println("About to delete");
+                    Toast.makeText(BeerActivity.this, "Removing...", Toast.LENGTH_LONG);
+                    addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                    utilities.deleteFav(finalBeerId);
+                }
+                isFavorite = !isFavorite;
+            }
+            catch (Exception e){
+                System.out.println("Fucked up");
+                System.out.println(e.getMessage());
+            }
         });
 
         setData(beer);
