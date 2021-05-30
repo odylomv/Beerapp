@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -47,6 +48,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         if (actionBar != null) {
             ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#e2d1c3"));
             actionBar.setBackgroundDrawable(colorDrawable);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
 
@@ -131,5 +133,16 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         } else {
             db.addComment(beerId, comment);
         }
+    }
+
+    // This hack is needed to properly navigate back to the
+    // correct Activity using the ActionBar back button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

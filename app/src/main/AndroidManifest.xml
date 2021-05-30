@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Beerapp">
         <activity android:name=".BeerActivity" />
-        <activity android:name=".ExploreActivity" />
-        <activity android:name=".FavoritesActivity" />
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".ExploreActivity" android:parentActivityName="com.example.beerapp.MainActivity" />
+        <activity android:name=".FavoritesActivity" android:parentActivityName="com.example.beerapp.MainActivity" />
+        <activity android:name=".AboutActivity" android:parentActivityName="com.example.beerapp.MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
