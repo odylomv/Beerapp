@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  * This class is used to implement various methods about storing data via SQLite
  */
 public class Utilities extends SQLiteOpenHelper {
-    public final static String FAV_TABLE = "FAV_TABLE"; //table name, and columns
+    public final static String FAV_TABLE = "FAV_TABLE";
     public final static String COMMENT_TABLE = "COMMENT_TABLE";
     public final static String FAV_ID = "ID";
     public final static String COMMENT_ID = "ID";
@@ -39,7 +40,6 @@ public class Utilities extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
-    
 
     /**
      * Add beer id to favorites table
@@ -50,7 +50,8 @@ public class Utilities extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(FAV_ID, id);
-        db.insert(FAV_TABLE,null, cv);
+        long insert = db.insert(FAV_TABLE,null,cv);
+        return insert != -1;
     }
 
     /**
@@ -97,8 +98,8 @@ public class Utilities extends SQLiteOpenHelper {
     public ArrayList<Integer> getFavorites() {
         ArrayList<Integer> favs = new ArrayList<>();
         String query = "SELECT * FROM " + FAV_TABLE;
-        SQLiteDatabase db = this.getReadableDatabase(); // readable because we only read data
-        Cursor cursor = db.rawQuery(query, null); //cursors store the data from the select query
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()){
             do{
                 int beerId = cursor.getInt(0);
@@ -159,13 +160,20 @@ public class Utilities extends SQLiteOpenHelper {
      * @param id of the deleted to be beer
      * @return bool whether it worked or not
      */
-    public void deleteComment(int id) {
+    public boolean deleteComment(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + COMMENT_TABLE + " WHERE " + COMMENT_ID + " = "+ id;
         Cursor cursor = db.rawQuery(query, null);
-        cursor.close();
-        db.close();
-
+        if (cursor.moveToFirst()){
+            cursor.close();
+            db.close();
+            return true; //found and deleted
+        }
+        else{
+            cursor.close();
+            db.close();
+            return false; //not found and error
+        }
     }
 
     /**
@@ -179,5 +187,4 @@ public class Utilities extends SQLiteOpenHelper {
         cv.put(COMMENT, comment);
         db.update(COMMENT_TABLE,cv,COMMENT_ID + " = "+ id,null);
     }
-
 }

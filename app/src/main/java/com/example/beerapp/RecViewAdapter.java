@@ -63,6 +63,14 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         });
     }
 
+    public Beer getBeerById(int id) {
+        for(Beer beer : beers)
+            if(beer.getId() == id)
+                return beer;
+
+        return null;
+    }
+
     @Override
     public int getItemCount() {
         return beers.size();

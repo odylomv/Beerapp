@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class BeerActivity extends AppCompatActivity implements ModalForComment.ModalCommentListener {
     public static final String BEER_ID_KEY = "beerId";
     private TextView aloneBeerName, aloneLongDesc, displayComment;
@@ -40,6 +42,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
 
         commentFAB.setOnClickListener(view -> openDialog());
 
+
         // Fetch ActionBar instance
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -48,25 +51,27 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+
+        Beer beer = new Beer();
         //This is where we get each beer's content to display on Beer Activity using beerId and string arrays for content
-        Beer beer;
         Resources res = getResources();
-        String[] beerStyles = res.getStringArray(R.array.beerStyles),
-                 beerImageLinks = res.getStringArray(R.array.beerImageLinks),
-                 beerShortDesc = res.getStringArray(R.array.shortDescriptions),
-                 beerLongDesc = res.getStringArray(R.array.longDescriptions);
+        String[] beerStyles = res.getStringArray(R.array.beerStyles);
+        String[] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
+        String[] beerShortDesc = res.getStringArray(R.array.longDescriptions);
 
         Intent intent = getIntent();
+        beerId = -1;
         if (intent != null) {
-            beerId = intent.getIntExtra(BEER_ID_KEY, -1);
-            beer = new Beer(beerStyles[beerId], beerId, beerShortDesc[beerId], beerLongDesc[beerId], beerImageLinks[beerId]);
-            setData(beer);
+            beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class, load both short and long desc
+            beer = new Beer(beerStyles[beerId], beerId, beerShortDesc[beerId], beerShortDesc[beerId], beerImageLinks[beerId]); //using short desc as long temporarily
         }
 
-        // This is supposed to check favorite status to display the appropriate heart
+        /* this is supposed to check favorite status to display the appropriate heart*/
         Utilities utilities = new Utilities(BeerActivity.this);
+        ArrayList<Integer> favs;
 
-        isFavorite = utilities.getFavorites().contains(beerId);
+        favs = utilities.getFavorites();
+        isFavorite = favs.contains(beerId);
         if (isFavorite) {
             addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
         } else {
@@ -89,16 +94,21 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
                 }
                 isFavorite = !isFavorite;
             } catch (Exception e) {
+                System.out.println("Fucked up");
                 System.out.println(e.getMessage());
             }
         });
 
+        setData(beer);
+
         //This is where we load comment if it exists
-        if (utilities.getCommented().contains(beerId)) {
-            displayComment.setText(utilities.getComment(beerId));
-            displayComment.setVisibility(View.VISIBLE);
-        } else
+        ArrayList<Integer> commented = utilities.getCommented();
+        if (!commented.contains(beerId)) {
             displayComment.setVisibility(View.INVISIBLE);
+        } else {
+            displayComment.setVisibility(View.VISIBLE);
+            displayComment.setText(utilities.getComment(beerId));
+        }
     }
 
     public void openDialog() {
@@ -130,6 +140,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
                 db.updateComment(beerId, comment);
                 Toast.makeText(BeerActivity.this, "Existing comment modified", Toast.LENGTH_SHORT).show();
             }
+
         }
     }
 

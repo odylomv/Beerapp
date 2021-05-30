@@ -37,10 +37,10 @@ public class ExploreActivity extends AppCompatActivity {
         exploreRecyclerView.setAdapter(adapter);
         exploreRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Get all beers from storage and add them to the list
         ArrayList<Beer> beers = new ArrayList<>();
+
         for(int i = 0; i < beerStyles.length; i++)
-            beers.add(new Beer(beerStyles[i], i, beerShortDesc[i], beerLongDesc[i], beerImageLinks[i]));
+            beers.add(new Beer(beerStyles[i], i, beerShortDesc[i], " ", beerImageLinks[i]));
 
         adapter.setBeers(beers);
     }

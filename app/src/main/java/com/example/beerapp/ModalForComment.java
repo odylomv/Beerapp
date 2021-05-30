@@ -21,7 +21,7 @@ public class ModalForComment extends AppCompatDialogFragment {
 
     private EditText editTextComment;
     private ModalCommentListener listener;
-    private final int beerId;
+    private int beerId;
 
     public ModalForComment(int beerId) {
         this.beerId = beerId;
@@ -37,7 +37,7 @@ public class ModalForComment extends AppCompatDialogFragment {
         String commentState="";
         String displayOnPositiveButton; //either new or modify, text for the button
         editTextComment = view.findViewById(R.id.editTextComment);
-        if(utilities.getCommented().contains(beerId)){ //if it has comment then we modify we don't add
+        if(utilities.getCommented().contains(beerId)){
             displayOnPositiveButton = "Modify comment";
             commentState = "EXISTING";
             try {
@@ -47,7 +47,7 @@ public class ModalForComment extends AppCompatDialogFragment {
                 System.out.println(e.getMessage());
             }
         }
-        else{ //new comment
+        else{
             displayOnPositiveButton = "Add comment";
             commentState = "NEW";
         }
@@ -55,22 +55,30 @@ public class ModalForComment extends AppCompatDialogFragment {
         String finalCommentState = commentState;
         builder.setView(view)
                 .setTitle("Comment")
-                .setNegativeButton("cancel", (dialogInterface, i) -> { })
-                .setPositiveButton(displayOnPositiveButton, (dialogInterface, i) -> {
-                    String comment = editTextComment.getText().toString().trim();
-                    listener.applyTexts(comment,finalCommentState);
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                })
+                .setPositiveButton(displayOnPositiveButton, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String comment = editTextComment.getText().toString().trim();
+                        listener.applyTexts(comment,finalCommentState);
+                    }
                 });
 
         return builder.create();
     }
 
-    public interface ModalCommentListener {
+    public interface ModalCommentListener{
         void applyTexts(String comment,String state);
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        listener = (ModalCommentListener) context; //IMPORTANT if not impemented on Beer Activity modal wont work properly
+        listener = (ModalCommentListener) context; // IMPORTANT RIP if not implemented on Beer Activity
     }
 }
