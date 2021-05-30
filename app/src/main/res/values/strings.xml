@@ -9,6 +9,8 @@
     and data has been gathered from Wikipedia within the Creative Commons license limitations without any intention of commercial use. </string>
     <string name="welcome">Welcome to BeerApp!</string>
     <string name="aboutButton">About</string>
+    <string name="leftArrow" >Left Arrow </string>
+    <string name="rightArrow" >Right Arrow </string>
 
 
 

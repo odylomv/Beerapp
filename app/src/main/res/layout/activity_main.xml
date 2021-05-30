@@ -79,6 +79,7 @@
         android:id="@+id/LeftArrow"
         android:layout_width="46dp"
         android:layout_height="41dp"
+        android:contentDescription="@string/leftArrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewPager"
         app:layout_constraintHorizontal_bias="0.978"
@@ -91,13 +92,14 @@
         android:id="@+id/rightArrow"
         android:layout_width="46dp"
         android:layout_height="41dp"
+        android:contentDescription="@string/rightArrow"
+        android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/viewPager"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.791"
-        app:srcCompat="@drawable/abc_vector_test"
-        android:rotation="180"/>
+        app:srcCompat="@drawable/abc_vector_test" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
