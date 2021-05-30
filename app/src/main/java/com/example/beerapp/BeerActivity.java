@@ -26,6 +26,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
     private ImageButton addToFvHeart;
     private boolean isFavorite;
     private FloatingActionButton commentFAB;
+    private int beerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
 
         Intent intent = getIntent();
-        int beerId = -1;
+        beerId = -1;
         if (intent != null) {
             beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class, load both short and long desc
             beer = new Beer(beerStyles[beerId],beerId,beerShortDesc[beerId],beerShortDesc[beerId] ,beerImageLinks[beerId]); //using short desc as long temporarily
@@ -120,7 +121,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
     }
 
     public void openDialog(){
-        ModalForComment modal = new ModalForComment();
+        ModalForComment modal = new ModalForComment(beerId);
         modal.show(getSupportFragmentManager(),"comment");
     }
 
@@ -136,8 +137,8 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         displayComment.setVisibility(View.VISIBLE);
         Utilities db = new Utilities(BeerActivity.this);
 
-        Intent intent = getIntent();
-        int beerId = intent.getIntExtra(BEER_ID_KEY, -1);
+        /*Intent intent = getIntent();
+        int beerId = intent.getIntExtra(BEER_ID_KEY, -1);*/
         db.addComment(beerId,comment);
     }
 }

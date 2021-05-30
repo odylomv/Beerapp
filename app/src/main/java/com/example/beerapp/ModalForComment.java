@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,11 @@ public class ModalForComment extends AppCompatDialogFragment {
 
     private EditText editTextComment;
     private ModalCommentListener listener;
+    private int beerId;
+
+    public ModalForComment(int beerId) {
+        this.beerId = beerId;
+    }
 
     @NonNull
     @NotNull
@@ -27,6 +33,14 @@ public class ModalForComment extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.modal_for_comment,null);
+        Utilities utilities = new Utilities(getActivity());
+        String displayOnPositiveButton = "";
+        if(utilities.getCommented().contains(beerId)){
+            displayOnPositiveButton = "Modify comment";
+        }
+        else{
+            displayOnPositiveButton = "Add comment";
+        }
 
         builder.setView(view)
                 .setTitle("Comment")
@@ -36,10 +50,10 @@ public class ModalForComment extends AppCompatDialogFragment {
 
                     }
                 })
-                .setPositiveButton("Add comment", new DialogInterface.OnClickListener() {
+                .setPositiveButton(displayOnPositiveButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String comment = editTextComment.getText().toString();
+                        String comment = editTextComment.getText().toString().trim();
                         listener.applyTexts(comment);
                     }
                 });
