@@ -8,21 +8,24 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class BeerActivity extends AppCompatActivity {
+public class BeerActivity extends AppCompatActivity implements ModalForComment.ModalCommentListener{
     public static final String BEER_ID_KEY = "beerId";
-    private TextView aloneBeerName, aloneLongDesc;
+    private TextView aloneBeerName, aloneLongDesc, displayComment;
     private ImageView aloneBeerPic;
     private ImageButton addToFvHeart;
     private boolean isFavorite;
+    private FloatingActionButton commentFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,16 @@ public class BeerActivity extends AppCompatActivity {
         aloneBeerPic = findViewById(R.id.aloneBeerpic);
         aloneLongDesc = findViewById(R.id.aloneLongDesc);
         addToFvHeart = findViewById(R.id.addToFvHeart);
+        commentFAB = findViewById(R.id.commentFAB);
+        displayComment = findViewById(R.id.commentDisplay);
+
+        commentFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialog();
+            }
+        });
+
 
 
         // Fetch ActionBar instance
@@ -78,9 +91,10 @@ public class BeerActivity extends AppCompatActivity {
                 if (!isFavorite) {
                     addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                     utilities.addFav(finalBeerId);
+                    Toast.makeText(BeerActivity.this, "Added to favorites", Toast.LENGTH_SHORT).show();
                 } else {
                     System.out.println("About to delete");
-                    Toast.makeText(BeerActivity.this, "Removing...", Toast.LENGTH_LONG);
+                    Toast.makeText(BeerActivity.this, "Removing from favorites", Toast.LENGTH_SHORT).show();
                     addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                     utilities.deleteFav(finalBeerId);
                 }
@@ -95,9 +109,19 @@ public class BeerActivity extends AppCompatActivity {
         setData(beer);
     }
 
+    public void openDialog(){
+        ModalForComment modal = new ModalForComment();
+        modal.show(getSupportFragmentManager(),"comment");
+    }
+
     private void setData(Beer beer) {
         aloneLongDesc.setText(beer.getLongDescription());
         aloneBeerName.setText(beer.getName());
         Glide.with(this).asBitmap().load(beer.getImgSource()).into(aloneBeerPic);
+    }
+
+    @Override
+    public void applyTexts(String comment) {
+        displayComment.setText("Your thoughts are \n"+comment);
     }
 }
