@@ -30,6 +30,7 @@ public class ModalForComment extends AppCompatDialogFragment {
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.modal_for_comment,null);
         Utilities utilities = new Utilities(getActivity());
+
         String displayOnPositiveButton;
         if(utilities.getCommented().contains(beerId)){
             displayOnPositiveButton = "Modify comment";
