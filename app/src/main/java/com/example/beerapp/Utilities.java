@@ -120,4 +120,22 @@ public class Utilities extends SQLiteOpenHelper {
         db.close();
         return comment;
     }
+
+    public boolean deleteComment(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + COMMENT_TABLE + " WHERE " + COMMENT_ID + " = "+ id;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()){
+            cursor.close();
+            db.close();
+            return true; //found and deleted
+        }
+        else{
+            cursor.close();
+            db.close();
+            return false; //not found and error
+        }
+
+    }
+
 }
