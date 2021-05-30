@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-
+//Operations are identical to FavoritesActivity only data change
 public class ExploreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-/**
- * This class is used to implement various methods about storing data via SQLite
+/*
+  This class is used to implement various methods about storing data via SQLite
  */
 public class Utilities extends SQLiteOpenHelper {
     public final static String FAV_TABLE = "FAV_TABLE";
@@ -25,10 +25,9 @@ public class Utilities extends SQLiteOpenHelper {
         super(context, "beerApp.db", null, 1);
     }
 
-    /**
-     * The database is made up of two tables, one where we store the ids (INTEGER) of the favorite beers
-     * and one where store the ids and the comments (TEXT) about beers
-     * @param sqLiteDatabase
+    /*
+      The database is made up of two tables, one where we store the ids (INTEGER) of the favorite beers
+      and one where store the ids and the comments (TEXT) about beers
      */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -41,10 +40,10 @@ public class Utilities extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
 
-    /**
-     * Add beer id to favorites table
-     * @param id to be added
-     * @return to check if insertion worked
+    /*
+      Add beer id to favorites table
+      parameter id to be added
+     * return to check if insertion worked
      */
     public boolean addFav(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -54,11 +53,11 @@ public class Utilities extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    /**
+    /*
      * similar to addFav
-     * @param id to be added
-     * @param comment
-     * @return
+     * parameter id to be added
+     * parameter comment
+     * return
      */
     public boolean addComment(int id, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -69,10 +68,10 @@ public class Utilities extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    /**
+    /*
      * Delete from favorites table
-     * @param id to be deleted
-     * @return bool to see if it worked
+     * param id to be deleted
+     * return bool to see if it worked
      */
     public boolean deleteFav(int id){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -91,9 +90,9 @@ public class Utilities extends SQLiteOpenHelper {
 
     }
 
-    /**
+    /*
      * Get all the favorite beers
-     * @return arraylist of integer ids
+     * return arraylist of integer ids
      */
     public ArrayList<Integer> getFavorites() {
         ArrayList<Integer> favs = new ArrayList<>();
@@ -114,9 +113,9 @@ public class Utilities extends SQLiteOpenHelper {
         return favs;
     }
 
-    /**
+    /*
      * Similar to getFavorites, only the ids of commented beers are returned
-     * @return Arraylist of integers
+     * return Arraylist of integers
      */
     public ArrayList<Integer> getCommented() {
         ArrayList<Integer> commented = new ArrayList<>();
@@ -137,10 +136,10 @@ public class Utilities extends SQLiteOpenHelper {
         return commented;
     }
 
-    /**
+    /*
      * Get specific comment depending on Id
-     * @param beerId id of desired beer
-     * @return specific comment
+     * param beerId id of desired beer
+     * return specific comment
      */
     public String getComment(int beerId) {
         String comment = "";
@@ -155,10 +154,10 @@ public class Utilities extends SQLiteOpenHelper {
         return comment;
     }
 
-    /**
+    /*
      * Utility function for deleting comments from the COMMENTS table
-     * @param id of the deleted to be beer
-     * @return bool whether it worked or not
+     * param id of the deleted to be beer
+     * return bool whether it worked or not
      */
     public boolean deleteComment(int id){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -176,10 +175,10 @@ public class Utilities extends SQLiteOpenHelper {
         }
     }
 
-    /**
+    /*
      * Utility function for updating a comment record
-     * @param id of the beer whose comment is to be updated
-     * @param comment the updated text
+     * param id of the beer whose comment is to be updated
+     * param comment the updated text
      */
     public void updateComment(int id, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();

@@ -1,10 +1,10 @@
 package com.example.beerapp;
 
-/**
- * This class is used to represent a beer item, with the following attributes
- * Id the beer id, name its name, short and long description are self explanatory
- * and imgSource the destination of each beer's picture
- */
+/*
+ This class is used to represent a beer item, with the following attributes
+  Id the beer id, name its name, short and long description are self explanatory
+  and imgSource the destination of each beer's picture
+*/
 public class Beer {
     private int id;
     private String name;

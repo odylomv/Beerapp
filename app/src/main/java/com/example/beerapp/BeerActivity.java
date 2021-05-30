@@ -20,6 +20,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+
+ //Used to represent a standalone beer after the user has clicked on a beer in explore or favorites
+
 public class BeerActivity extends AppCompatActivity implements ModalForComment.ModalCommentListener {
     public static final String BEER_ID_KEY = "beerId";
     private TextView aloneBeerName, aloneLongDesc, displayComment;
@@ -32,14 +35,14 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beer);
-
+        //initialize fields
         aloneBeerName = findViewById(R.id.aloneBeerName);
         aloneBeerPic = findViewById(R.id.aloneBeerpic);
         aloneLongDesc = findViewById(R.id.aloneLongDesc);
         addToFvHeart = findViewById(R.id.addToFvHeart);
         FloatingActionButton commentFAB = findViewById(R.id.commentFAB);
         displayComment = findViewById(R.id.commentDisplay);
-
+        //FAB for adding comment
         commentFAB.setOnClickListener(view -> openDialog());
 
 
@@ -79,8 +82,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         }
 
         int finalBeerId = beerId;
-        addToFvHeart.setOnClickListener(view -> {
-            // This is only temporary till db is done
+        addToFvHeart.setOnClickListener(view -> { //here we add/remove from favorites using SQLite
             try {
                 if (!isFavorite) {
                     addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
@@ -122,7 +124,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         Glide.with(this).asBitmap().load(beer.getImgSource()).into(aloneBeerPic);
     }
 
-    @Override
+    @Override //Used to change the data in the COMMENTS table, delete, add or update
     public void applyTexts(String comment,String state) {
         displayComment.setText(comment);
         displayComment.setVisibility(View.VISIBLE);

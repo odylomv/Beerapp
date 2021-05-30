@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-/**
+/*
  * This class is used to create the modal dialog where the user can write o modify a comment for a beer
  */
 public class ModalForComment extends AppCompatDialogFragment {
