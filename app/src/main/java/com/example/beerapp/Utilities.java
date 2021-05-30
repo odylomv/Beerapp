@@ -137,5 +137,11 @@ public class Utilities extends SQLiteOpenHelper {
         }
 
     }
+    public void updateComment(int id, String comment){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COMMENT, comment);
+        db.update(COMMENT_TABLE,cv,COMMENT_ID + " = "+ id,null);
+    }
 
 }

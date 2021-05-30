@@ -123,15 +123,24 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
     }
 
     @Override
-    public void applyTexts(String comment) {
+    public void applyTexts(String comment,String state) {
         displayComment.setText(comment);
         displayComment.setVisibility(View.VISIBLE);
         Utilities db = new Utilities(BeerActivity.this);
         if (comment.isEmpty()) {
             Toast.makeText(BeerActivity.this, "Empty comments will be deleted automatically", Toast.LENGTH_SHORT).show();
             db.deleteComment(beerId);
-        } else {
-            db.addComment(beerId, comment);
+        }
+        else {
+            if(state.equals("NEW")) {
+                db.addComment(beerId, comment);
+                Toast.makeText(BeerActivity.this, "New comment added", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                db.updateComment(beerId, comment);
+                Toast.makeText(BeerActivity.this, "Existing comment modified", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 

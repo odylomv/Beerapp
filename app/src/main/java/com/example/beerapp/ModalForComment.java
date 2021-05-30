@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,29 +33,46 @@ public class ModalForComment extends AppCompatDialogFragment {
         Utilities utilities = new Utilities(getActivity());
 
         String displayOnPositiveButton;
+        String commentstate = "";
+        editTextComment = view.findViewById(R.id.editTextComment);
         if(utilities.getCommented().contains(beerId)){
             displayOnPositiveButton = "Modify comment";
+            commentstate = "EXISTING";
+            try {
+                editTextComment.setText(utilities.getComment(beerId), TextView.BufferType.EDITABLE);
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
         else{
             displayOnPositiveButton = "Add comment";
+            commentstate = "NEW";
         }
 
+        String finalCommentstate = commentstate;
         builder.setView(view)
                 .setTitle("Comment")
-                .setNegativeButton("cancel", (dialogInterface, i) -> {
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
+                    }
                 })
-                .setPositiveButton(displayOnPositiveButton, (dialogInterface, i) -> {
-                    String comment = editTextComment.getText().toString().trim();
-                    listener.applyTexts(comment);
+                .setPositiveButton(displayOnPositiveButton, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String comment = editTextComment.getText().toString().trim();
+                        listener.applyTexts(comment,finalCommentstate);
+                    }
                 });
-        editTextComment = view.findViewById(R.id.editTextComment);
+
 
         return builder.create();
 
     }
     public interface ModalCommentListener{
-        void applyTexts(String comment);
+        void applyTexts(String comment,String state);
     }
 
     @Override
