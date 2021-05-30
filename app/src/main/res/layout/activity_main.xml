@@ -71,10 +71,12 @@
         app:layout_constraintVertical_bias="0.98" />
 
     <ImageView
-        android:id="@+id/LeftArrow"
+        android:id="@+id/leftArrow"
         android:layout_width="46dp"
         android:layout_height="41dp"
+        android:clickable="true"
         android:contentDescription="@string/leftArrow"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewPager"
         app:layout_constraintHorizontal_bias="0.978"
@@ -88,6 +90,7 @@
         android:layout_width="46dp"
         android:layout_height="41dp"
         android:contentDescription="@string/rightArrow"
+        android:focusable="true"
         android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

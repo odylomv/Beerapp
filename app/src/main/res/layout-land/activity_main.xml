@@ -90,7 +90,9 @@
             android:layout_height="41dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
+            android:clickable="true"
             android:contentDescription="@string/rightArrow"
+            android:focusable="true"
             android:rotation="180"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,12 +112,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/LeftArrow"
+            android:id="@+id/leftArrow"
             android:layout_width="46dp"
             android:layout_height="41dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
+            android:clickable="true"
             android:contentDescription="@string/leftArrow"
+            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/viewPager"
             app:layout_constraintStart_toStartOf="parent"

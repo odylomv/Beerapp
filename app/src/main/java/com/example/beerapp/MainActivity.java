@@ -11,6 +11,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +52,14 @@ public class MainActivity extends AppCompatActivity {
         Adapter adapter = new Adapter(this);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(adapter.getCount() / 2, false);
+
+        findViewById(R.id.leftArrow).setOnClickListener(view -> {
+            if (viewPager.getCurrentItem() > 0)
+                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        });
+        findViewById(R.id.rightArrow).setOnClickListener(view -> {
+            if (viewPager.getCurrentItem() + 1 < Objects.requireNonNull(viewPager.getAdapter()).getCount())
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        });
     }
-
-
-    //TODO need to find a way to load long descriptions
-    //TODO add an editText item
 }
