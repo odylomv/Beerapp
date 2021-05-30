@@ -55,7 +55,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
             actionBar.setBackgroundDrawable(colorDrawable);
         }
 
-        //Beer beer = new Beer("Pipi", 0, "Short Pipi lolololo", "longPipi lololo", "https://www.csd.auth.gr/wp-content/uploads/2019/08/Tefas2020small-240x300.jpg");
+
 
         Beer beer = new Beer();
         //This is where we get each beer's content to display on Beer Activity using beerId and string arrays for content
@@ -107,6 +107,16 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         });
 
         setData(beer);
+
+        //This is where we load comment if it exists
+        ArrayList<Integer> commented = utilities.getCommented();
+        if(!commented.contains(beerId)){
+            displayComment.setVisibility(View.INVISIBLE);
+        }
+        else{
+            displayComment.setVisibility(View.VISIBLE);
+            displayComment.setText(utilities.getComment(beerId));
+        }
     }
 
     public void openDialog(){
@@ -122,6 +132,12 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
 
     @Override
     public void applyTexts(String comment) {
-        displayComment.setText("Your thoughts are \n"+comment);
+        displayComment.setText(comment);
+        displayComment.setVisibility(View.VISIBLE);
+        Utilities db = new Utilities(BeerActivity.this);
+
+        Intent intent = getIntent();
+        int beerId = intent.getIntExtra(BEER_ID_KEY, -1);
+        db.addComment(beerId,comment);
     }
 }

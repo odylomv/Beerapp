@@ -42,6 +42,16 @@ public class Utilities extends SQLiteOpenHelper {
         return insert != -1;
     }
 
+    public boolean addComment(int id, String comment){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COMMENT_ID, id);
+        cv.put(COMMENT, comment);
+        long insert = db.insert(COMMENT_TABLE,null,cv);
+        return insert != -1;
+    }
+
+
     public boolean deleteFav(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + FAV_TABLE + " WHERE " + FAV_ID + " = "+ id;
@@ -58,6 +68,7 @@ public class Utilities extends SQLiteOpenHelper {
         }
 
     }
+
 
     public ArrayList<Integer> getFavorites(){
         ArrayList<Integer> favs = new ArrayList<>();
@@ -76,5 +87,37 @@ public class Utilities extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return favs;
+    }
+
+    public ArrayList<Integer> getCommented(){
+        ArrayList<Integer> commented = new ArrayList<>();
+        String query = "SELECT " +COMMENT_ID+ " FROM " + COMMENT_TABLE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()){
+            do{
+                int beerId = cursor.getInt(0);
+                commented.add(beerId);
+            }while (cursor.moveToNext());
+        }
+        else {
+            //nothing to show in comments
+        }
+        cursor.close();
+        db.close();
+        return commented;
+    }
+
+    public String getComment(int beerId){
+        String comment = "";
+        String query = "SELECT " +COMMENT+ " FROM " + COMMENT_TABLE + " WHERE "+COMMENT_ID + "="+ beerId;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if(cursor.moveToFirst()){
+            comment = cursor.getString(cursor.getColumnIndex(COMMENT));
+        }
+        cursor.close();
+        db.close();
+        return comment;
     }
 }
