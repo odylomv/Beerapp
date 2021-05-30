@@ -22,8 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 
- //Used to represent a standalone beer after the user has clicked on a beer in explore or favorites
-
+// Used to represent a standalone beer after the user has clicked on a beer in explore or favorites
 public class BeerActivity extends AppCompatActivity implements ModalForComment.ModalCommentListener {
     public static final String BEER_ID_KEY = "beerId";
     private TextView aloneBeerName, aloneLongDesc, displayComment;
@@ -48,7 +47,6 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         //FAB for adding comment
         commentFAB.setOnClickListener(view -> openDialog());
 
-
         // Fetch ActionBar instance
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -57,19 +55,19 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-
-        Beer beer = new Beer();
         //This is where we get each beer's content to display on Beer Activity using beerId and string arrays for content
+        Beer beer = new Beer();
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String[] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
-        String[] beerShortDesc = res.getStringArray(R.array.longDescriptions);
+        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
+        String[] beerLongDesc = res.getStringArray(R.array.longDescriptions);
 
-        Intent intent = getIntent();
         beerId = -1;
+        Intent intent = getIntent();
         if (intent != null) {
-            beerId = intent.getIntExtra(BEER_ID_KEY, -1); //TODO open specific beer for each tap create utilities class, load both short and long desc
-            beer = new Beer(beerStyles[beerId], beerId, beerShortDesc[beerId], beerShortDesc[beerId], beerImageLinks[beerId]); //using short desc as long temporarily
+            beerId = intent.getIntExtra(BEER_ID_KEY, -1);
+            beer = new Beer(beerStyles[beerId], beerId, beerShortDesc[beerId], beerLongDesc[beerId], beerImageLinks[beerId]); //using short desc as long temporarily
         }
 
         /* this is supposed to check favorite status to display the appropriate heart*/
@@ -86,22 +84,17 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
 
         int finalBeerId = beerId;
         addToFvHeart.setOnClickListener(view -> { //here we add/remove from favorites using SQLite
-            try {
-                if (!isFavorite) {
-                    addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
-                    utilities.addFav(finalBeerId);
-                    Toast.makeText(BeerActivity.this, "Added to favorites", Toast.LENGTH_SHORT).show();
-                } else {
-                    System.out.println("About to delete");
-                    Toast.makeText(BeerActivity.this, "Removing from favorites", Toast.LENGTH_SHORT).show();
-                    addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
-                    utilities.deleteFav(finalBeerId);
-                }
-                isFavorite = !isFavorite;
-            } catch (Exception e) {
-                System.out.println("Fucked up");
-                System.out.println(e.getMessage());
+            if (!isFavorite) {
+                addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                utilities.addFav(finalBeerId);
+                Toast.makeText(BeerActivity.this, "Added to favorites", Toast.LENGTH_SHORT).show();
+            } else {
+                System.out.println("About to delete");
+                Toast.makeText(BeerActivity.this, "Removing from favorites", Toast.LENGTH_SHORT).show();
+                addToFvHeart.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                utilities.deleteFav(finalBeerId);
             }
+            isFavorite = !isFavorite;
         });
 
         setData(beer);
@@ -138,7 +131,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
             commentCard.setVisibility(View.INVISIBLE);
         }
         else {
-            if(state.equals("NEW")) {
+            if (state.equals("NEW")) {
                 db.addComment(beerId, comment);
                 Toast.makeText(BeerActivity.this, "New comment added", Toast.LENGTH_SHORT).show();
             }

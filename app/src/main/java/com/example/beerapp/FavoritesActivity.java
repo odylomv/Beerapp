@@ -12,9 +12,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-/*
- * Class used to create favorites activity where users can view favorites
- */
+// Class used to create favorites activity where users can view favorites
 public class FavoritesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

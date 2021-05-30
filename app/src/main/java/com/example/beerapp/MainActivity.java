@@ -25,10 +25,7 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setBackgroundDrawable(colorDrawable);
         }
 
-        Resources res = getResources();
-        String[] beerStyles = res.getStringArray(R.array.beerStyles);
-        String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
-
+        // Navigate to each Activity using a menu button
         Button exploreButton = findViewById(R.id.buttonExplore);
         exploreButton.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, ExploreActivity.class);
@@ -53,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(imageAdapter);
         viewPager.setCurrentItem(imageAdapter.getCount() / 2, false);
 
+        // Scroll through Carousel using arrow buttons
         findViewById(R.id.leftArrow).setOnClickListener(view -> {
             if (viewPager.getCurrentItem() > 0)
                 viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
         });
+
         findViewById(R.id.rightArrow).setOnClickListener(view -> {
             if (viewPager.getCurrentItem() + 1 < Objects.requireNonNull(viewPager.getAdapter()).getCount())
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

@@ -11,9 +11,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-/*
-  This class is used to implement various methods about storing data via SQLite
- */
+// This class is used to implement various methods about storing data via SQLite
 public class Utilities extends SQLiteOpenHelper {
     public final static String FAV_TABLE = "FAV_TABLE";
     public final static String COMMENT_TABLE = "COMMENT_TABLE";
@@ -25,10 +23,8 @@ public class Utilities extends SQLiteOpenHelper {
         super(context, "beerApp.db", null, 1);
     }
 
-    /*
-      The database is made up of two tables, one where we store the ids (INTEGER) of the favorite beers
-      and one where store the ids and the comments (TEXT) about beers
-     */
+    /* The database is made up of two tables, one where we store the ids (INTEGER) of the favorite
+    beers and one where store the ids and the comments (TEXT) about beers */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String createTable = "CREATE TABLE "+FAV_TABLE + "(" +FAV_ID +" INTEGER PRIMARY KEY)";
@@ -40,11 +36,7 @@ public class Utilities extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) { }
 
-    /*
-      Add beer id to favorites table
-      parameter id to be added
-     * return to check if insertion worked
-     */
+    // Add beer id to favorites database table
     public boolean addFav(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -53,12 +45,7 @@ public class Utilities extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    /*
-     * similar to addFav
-     * parameter id to be added
-     * parameter comment
-     * return
-     */
+    // Add beer comment to comments database table
     public boolean addComment(int id, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -68,11 +55,7 @@ public class Utilities extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    /*
-     * Delete from favorites table
-     * param id to be deleted
-     * return bool to see if it worked
-     */
+    // Delete from favorites table
     public boolean deleteFav(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + FAV_TABLE + " WHERE " + FAV_ID + " = "+ id;
@@ -90,10 +73,7 @@ public class Utilities extends SQLiteOpenHelper {
 
     }
 
-    /*
-     * Get all the favorite beers
-     * return arraylist of integer ids
-     */
+    // Get all the favorite beers
     public ArrayList<Integer> getFavorites() {
         ArrayList<Integer> favs = new ArrayList<>();
         String query = "SELECT * FROM " + FAV_TABLE;
@@ -105,18 +85,14 @@ public class Utilities extends SQLiteOpenHelper {
                 favs.add(beerId);
             }while (cursor.moveToNext());
         }
-        else {
-            //nothing to show in favorites
-        }
+        // Else nothing to show in favorites
+
         cursor.close();
         db.close();
         return favs;
     }
 
-    /*
-     * Similar to getFavorites, only the ids of commented beers are returned
-     * return Arraylist of integers
-     */
+    // Similar to getFavorites, only the ids of commented beers are returned
     public ArrayList<Integer> getCommented() {
         ArrayList<Integer> commented = new ArrayList<>();
         String query = "SELECT " +COMMENT_ID+ " FROM " + COMMENT_TABLE;
@@ -128,19 +104,14 @@ public class Utilities extends SQLiteOpenHelper {
                 commented.add(beerId);
             }while (cursor.moveToNext());
         }
-        else {
-            //nothing to show in comments
-        }
+        // Else nothing to show in comments
+
         cursor.close();
         db.close();
         return commented;
     }
 
-    /*
-     * Get specific comment depending on Id
-     * param beerId id of desired beer
-     * return specific comment
-     */
+    // Get specific comment depending on id
     public String getComment(int beerId) {
         String comment = "";
         String query = "SELECT " +COMMENT+ " FROM " + COMMENT_TABLE + " WHERE "+COMMENT_ID + "="+ beerId;
@@ -154,11 +125,7 @@ public class Utilities extends SQLiteOpenHelper {
         return comment;
     }
 
-    /*
-     * Utility function for deleting comments from the COMMENTS table
-     * param id of the deleted to be beer
-     * return bool whether it worked or not
-     */
+    // Utility function for deleting comments from the COMMENTS database table
     public boolean deleteComment(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + COMMENT_TABLE + " WHERE " + COMMENT_ID + " = "+ id;
@@ -175,11 +142,7 @@ public class Utilities extends SQLiteOpenHelper {
         }
     }
 
-    /*
-     * Utility function for updating a comment record
-     * param id of the beer whose comment is to be updated
-     * param comment the updated text
-     */
+    // Utility function for updating a comment record
     public void updateComment(int id, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
