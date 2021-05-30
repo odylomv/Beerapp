@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+/**
+ * This class is used to create the modal dialog where the user can write o modify a comment for a beer
+ */
 public class ModalForComment extends AppCompatDialogFragment {
 
     private EditText editTextComment;
@@ -31,10 +34,10 @@ public class ModalForComment extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.modal_for_comment,null);
         Utilities utilities = new Utilities(getActivity());
 
-        String displayOnPositiveButton;
-        String commentState;
+        String commentState="";
+        String displayOnPositiveButton; //either new or modify, text for the button
         editTextComment = view.findViewById(R.id.editTextComment);
-        if(utilities.getCommented().contains(beerId)){
+        if(utilities.getCommented().contains(beerId)){ //if it has comment then we modify we don't add
             displayOnPositiveButton = "Modify comment";
             commentState = "EXISTING";
             try {
@@ -44,7 +47,7 @@ public class ModalForComment extends AppCompatDialogFragment {
                 System.out.println(e.getMessage());
             }
         }
-        else{
+        else{ //new comment
             displayOnPositiveButton = "Add comment";
             commentState = "NEW";
         }
@@ -68,6 +71,6 @@ public class ModalForComment extends AppCompatDialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        listener = (ModalCommentListener) context; // IMPORTANT RIP if not implemented on Beer Activity
+        listener = (ModalCommentListener) context; //IMPORTANT if not impemented on Beer Activity modal wont work properly
     }
 }

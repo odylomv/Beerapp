@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 import static com.example.beerapp.BeerActivity.BEER_ID_KEY;
 
+/**
+ * Adapter for the recycler view used in the Favorites and Explore activities
+ */
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private static final String TAG = "FavoriteRecViewAdapter";
     private ArrayList<Beer> beers = new ArrayList<>();
@@ -28,13 +31,17 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         this.context = context;
     }
 
+    /**
+     * Setting data for the adapter
+     * @param beers
+     */
     public void setBeers(ArrayList<Beer> beers) {
         this.beers = beers;
         notifyDataSetChanged();
     }
 
     @Override @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { //
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_beer,parent,false);
         return new ViewHolder(view);
     }
