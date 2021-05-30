@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setCurrentItem(adapter.getCount() / 2, false);
     }
 
-    //TODO text in the activity_beer needs to be more centered
-    //TODO carousel needs to stop crashing
+
     //TODO need to find a way to load long descriptions
+    //TODO add an editText item
 }
