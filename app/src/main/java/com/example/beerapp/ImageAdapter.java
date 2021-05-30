@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-public class Adapter extends PagerAdapter {
+public class ImageAdapter extends PagerAdapter {
     private final Context context;
     //hard coded, probably best to initialize with a for loop
     private final int[] imageArray = { R.drawable.beer1, R.drawable.beer2, R.drawable.beer3, R.drawable.beer4,
@@ -17,7 +17,7 @@ public class Adapter extends PagerAdapter {
 
     private final ImageView[] beerViews = new ImageView[imageArray.length];
 
-    public Adapter(Context ctx) {
+    public ImageAdapter(Context ctx) {
         context = ctx;
     }
 

@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Creating the carousel on the main page
         ViewPager viewPager = findViewById(R.id.viewPager);
-        Adapter adapter = new Adapter(this);
-        viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(adapter.getCount() / 2, false);
+        ImageAdapter imageAdapter = new ImageAdapter(this);
+        viewPager.setAdapter(imageAdapter);
+        viewPager.setCurrentItem(imageAdapter.getCount() / 2, false);
 
         findViewById(R.id.leftArrow).setOnClickListener(view -> {
             if (viewPager.getCurrentItem() > 0)
