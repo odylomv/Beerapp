@@ -14,8 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import org.jetbrains.annotations.NotNull;
-
 public class ModalForComment extends AppCompatDialogFragment {
 
     private EditText editTextComment;
@@ -26,15 +24,13 @@ public class ModalForComment extends AppCompatDialogFragment {
         this.beerId = beerId;
     }
 
-    @NonNull
-    @NotNull
-    @Override
-    public Dialog onCreateDialog(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    @Override @NonNull
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.modal_for_comment,null);
         Utilities utilities = new Utilities(getActivity());
-        String displayOnPositiveButton = "";
+        String displayOnPositiveButton;
         if(utilities.getCommented().contains(beerId)){
             displayOnPositiveButton = "Modify comment";
         }
@@ -44,18 +40,12 @@ public class ModalForComment extends AppCompatDialogFragment {
 
         builder.setView(view)
                 .setTitle("Comment")
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                .setNegativeButton("cancel", (dialogInterface, i) -> {
 
-                    }
                 })
-                .setPositiveButton(displayOnPositiveButton, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String comment = editTextComment.getText().toString().trim();
-                        listener.applyTexts(comment);
-                    }
+                .setPositiveButton(displayOnPositiveButton, (dialogInterface, i) -> {
+                    String comment = editTextComment.getText().toString().trim();
+                    listener.applyTexts(comment);
                 });
         editTextComment = view.findViewById(R.id.editTextComment);
 
@@ -67,7 +57,7 @@ public class ModalForComment extends AppCompatDialogFragment {
     }
 
     @Override
-    public void onAttach(@NonNull @NotNull Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         listener = (ModalCommentListener) context; //IMPORTANT if not impemented on Beer Activity rip
     }

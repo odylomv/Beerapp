@@ -1,84 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/addToFavHeart"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".BeerActivity">
-
-    <ImageView
-        android:id="@+id/aloneBeerpic"
-        android:layout_width="225dp"
-        android:layout_height="284dp"
-        android:layout_marginTop="88dp"
-        android:contentDescription="Beer Image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
-        app:srcCompat="@drawable/beer1" />
-
-    <TextView
-        android:id="@+id/aloneBeerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/holtzbergregular"
-        android:text="Insert title here"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/aloneLongDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/holtzbergregular"
-        android:text="Long description goes here"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/aloneBeerpic"
-        app:layout_constraintStart_toStartOf="@+id/aloneBeerpic"
-        app:layout_constraintTop_toBottomOf="@+id/aloneBeerpic" />
-
-    <ImageButton
-        android:id="@+id/addToFvHeart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#e2d1c3"
-        android:contentDescription="Favorite"
-        android:tint="#6D6060"
-        app:layout_constraintBottom_toTopOf="@+id/aloneBeerpic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+    android:layout_width="match_parent">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/commentFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="Add comment"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94"
-        app:srcCompat="@drawable/ic_baseline_comment_24"
-        android:contentDescription="Add comment" />
+        app:layout_constraintVertical_bias="0.98"
+        app:srcCompat="@drawable/ic_baseline_comment_24" />
 
-    <TextView
-        android:id="@+id/commentDisplay"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/aloneLongDesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aloneBeerpic" />
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background"
+            tools:context=".BeerActivity">
+
+            <ImageView
+                android:id="@+id/aloneBeerpic"
+                android:layout_width="225dp"
+                android:layout_height="284dp"
+                android:layout_marginTop="88dp"
+                android:contentDescription="Beer Image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
+                app:srcCompat="@drawable/beer1" />
+
+            <TextView
+                android:id="@+id/aloneBeerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:fontFamily="@font/holtzbergregular"
+                android:text="Insert title here"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aloneLongDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="64dp"
+                android:fontFamily="@font/holtzbergregular"
+                android:text="Long description goes here"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commentDisplay" />
+
+            <ImageButton
+                android:id="@+id/addToFvHeart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#e2d1c3"
+                android:contentDescription="Favorite"
+                app:layout_constraintBottom_toTopOf="@+id/aloneBeerpic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aloneBeerName"
+                app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+                app:tint="#6D6060" />
+
+            <TextView
+                android:id="@+id/commentDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/aloneLongDesc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aloneBeerpic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

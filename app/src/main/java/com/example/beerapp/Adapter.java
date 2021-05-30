@@ -15,7 +15,7 @@ public class Adapter extends PagerAdapter {
             R.drawable.beer5, R.drawable.beer8, R.drawable.beer9,
             R.drawable.beer10, R.drawable.beer11, R.drawable.beer12, R.drawable.beer13, R.drawable.beer14 };
 
-    private ImageView[] beerViews = new ImageView[imageArray.length];
+    private final ImageView[] beerViews = new ImageView[imageArray.length];
 
     public Adapter(Context ctx) {
         context = ctx;

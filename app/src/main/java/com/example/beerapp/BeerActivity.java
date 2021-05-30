@@ -25,7 +25,6 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
     private ImageView aloneBeerPic;
     private ImageButton addToFvHeart;
     private boolean isFavorite;
-    private FloatingActionButton commentFAB;
     private int beerId;
 
     @Override
@@ -37,15 +36,10 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         aloneBeerPic = findViewById(R.id.aloneBeerpic);
         aloneLongDesc = findViewById(R.id.aloneLongDesc);
         addToFvHeart = findViewById(R.id.addToFvHeart);
-        commentFAB = findViewById(R.id.commentFAB);
+        FloatingActionButton commentFAB = findViewById(R.id.commentFAB);
         displayComment = findViewById(R.id.commentDisplay);
 
-        commentFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
+        commentFAB.setOnClickListener(view -> openDialog());
 
 
 
@@ -63,7 +57,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         Resources res = getResources();
         String[] beerStyles = res.getStringArray(R.array.beerStyles);
         String [] beerImageLinks = res.getStringArray(R.array.beerImageLinks);
-        String[] beerShortDesc = res.getStringArray(R.array.shortDescriptions);
+        String[] beerShortDesc = res.getStringArray(R.array.longDescriptions);
 
         Intent intent = getIntent();
         beerId = -1;
