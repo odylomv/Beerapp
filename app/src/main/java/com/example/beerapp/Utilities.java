@@ -46,7 +46,7 @@ public class Utilities extends SQLiteOpenHelper {
      * @param id to be added
      * @return to check if insertion worked
      */
-    public void addFav(int id) {
+    public boolean addFav(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(FAV_ID, id);
