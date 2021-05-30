@@ -2,6 +2,7 @@ package com.example.beerapp;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class BeerActivity extends AppCompatActivity implements ModalForComment.ModalCommentListener {
     public static final String BEER_ID_KEY = "beerId";
     private TextView aloneBeerName, aloneLongDesc, displayComment;
+    private CardView commentCard;
     private ImageView aloneBeerPic;
     private ImageButton addToFvHeart;
     private boolean isFavorite;
@@ -41,6 +43,7 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         aloneLongDesc = findViewById(R.id.aloneLongDesc);
         addToFvHeart = findViewById(R.id.addToFvHeart);
         FloatingActionButton commentFAB = findViewById(R.id.commentFAB);
+        commentCard = findViewById(R.id.commentCard);
         displayComment = findViewById(R.id.commentDisplay);
         //FAB for adding comment
         commentFAB.setOnClickListener(view -> openDialog());
@@ -106,10 +109,10 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
         //This is where we load comment if it exists
         ArrayList<Integer> commented = utilities.getCommented();
         if (!commented.contains(beerId)) {
-            displayComment.setVisibility(View.INVISIBLE);
+            commentCard.setVisibility(View.INVISIBLE);
         } else {
-            displayComment.setVisibility(View.VISIBLE);
             displayComment.setText(utilities.getComment(beerId));
+            commentCard.setVisibility(View.VISIBLE);
         }
     }
 
@@ -127,11 +130,12 @@ public class BeerActivity extends AppCompatActivity implements ModalForComment.M
     @Override //Used to change the data in the COMMENTS table, delete, add or update
     public void applyTexts(String comment,String state) {
         displayComment.setText(comment);
-        displayComment.setVisibility(View.VISIBLE);
+        commentCard.setVisibility(View.VISIBLE);
         Utilities db = new Utilities(BeerActivity.this);
         if (comment.isEmpty()) {
             Toast.makeText(BeerActivity.this, "Empty comments will be deleted automatically", Toast.LENGTH_SHORT).show();
             db.deleteComment(beerId);
+            commentCard.setVisibility(View.INVISIBLE);
         }
         else {
             if(state.equals("NEW")) {
