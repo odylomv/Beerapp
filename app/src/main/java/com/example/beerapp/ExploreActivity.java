@@ -40,7 +40,7 @@ public class ExploreActivity extends AppCompatActivity {
         ArrayList<Beer> beers = new ArrayList<>();
 
         for(int i = 0; i < beerStyles.length; i++)
-            beers.add(new Beer(beerStyles[i], i, beerShortDesc[i], "tefas", beerImageLinks[i]));
+            beers.add(new Beer(beerStyles[i], i, beerShortDesc[i], " ", beerImageLinks[i]));
 
         adapter.setBeers(beers);
     }
