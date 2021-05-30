@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.viewPager);
         Adapter adapter = new Adapter(this);
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(adapter.getCount() / 2, false);
     }
 
     //TODO text in the activity_beer needs to be more centered
